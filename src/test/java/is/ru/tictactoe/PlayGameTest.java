@@ -28,4 +28,13 @@ public class PlayGameTest {
 	testBoard = PlayGame.initialiazeTheBoard(testBoard);
 	assertArrayEquals(correctBoard, testBoard);
     }
+
+    @Test //check if computer returns the random coordinates in correct range, that is between 0 =< x =< 2
+    public void testGetApointFromComputerPlayer(){ 
+
+	ComputerPlayer comp = new ComputerPlayer();	
+	for(int i = 0; i < 20; i++){
+	    Point ptn = PlayGame.getApointFromThePlayer(comp);
+	    if(ptn.getX() > 2 || ptn.getY() > 2) fail();
+	}
 }

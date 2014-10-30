@@ -30,6 +30,11 @@ public class PlayGame {
 	String choice;
 	int tmp = 1;
 	do{
+<<<<<<< HEAD
+=======
+	    initialiazeTheBoard();
+	        
+>>>>>>> 0ee6af2e14a811e8dbcfc361f90a52339359d02c
 	    choice = selectGame();
 	    if(choice.equals("1")|| choice.equals("2") ||choice.equals("3"))
 	    	out.print(referenceBoardToString());
@@ -44,6 +49,7 @@ public class PlayGame {
 		    out.println();
 		    human_B.setUsername(username);
 		}
+<<<<<<< HEAD
 		//play(human_A, human_B);
 	    }
 	        
@@ -53,6 +59,17 @@ public class PlayGame {
 	        
 	}while(choice.equals("1")|| choice.equals("2") ||choice.equals("3") || choice.equals("0"));
 	//printResults(human_A, human_B, comp_A, comp_B); 
+=======
+		play(human_A, human_B);
+	    }
+	        
+	    else if(choice.equals("2")) play(human_A, comp_A);
+	    else if(choice.equals("3")) play(comp_A, comp_B); 
+	    else if(choice.equals("4")) break;
+	        
+	}while(choice.equals("1")|| choice.equals("2") ||choice.equals("3") || choice.equals("0"));
+	printResults(human_A, human_B, comp_A, comp_B); 
+>>>>>>> 0ee6af2e14a811e8dbcfc361f90a52339359d02c
     }
 
     //basic functions
@@ -165,6 +182,7 @@ public class PlayGame {
 	return board; 
     }
 
+<<<<<<< HEAD
     public static void play(Player player1, Player player2){
 	Point point;
 	boolean win = false;
@@ -173,4 +191,6 @@ public class PlayGame {
 	Player player;
 	String[][] board = new String [3][3];
 	}
+=======
+>>>>>>> 0ee6af2e14a811e8dbcfc361f90a52339359d02c
 }

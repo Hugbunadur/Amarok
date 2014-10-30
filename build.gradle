@@ -3,8 +3,26 @@ apply plugin: 'java'
 apply plugin: 'application'
 
 mainClassName = "is.ru.tictactoe.PlayGame"
+jar {
+    manifest {
+ 	attributes("Main-Class": "is.ru.tictactoe.PlayGame")
+    } 
+}
 
+applicationDefaultJvmArgs = ["-Dgreeting.language=en"]
 
+task createDocs {
+    def docs = file("$buildDir/docs")
+    outputs.dir docs
+    doLast {
+        docs.mkdirs()
+        new File(docs, "readme.txt").write("Read me!")
+    }
+}
+
+applicationDistribution.from(createDocs) {
+    into "docs"
+}
 
 repositories {
     // Use 'jcenter' for resolving your dependencies.
