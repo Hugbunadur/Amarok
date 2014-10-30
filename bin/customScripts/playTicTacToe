@@ -1,0 +1,5 @@
+#!/bin/bash
+
+./bin/customScripts/clean
+./bin/customScripts/compile
+./bin/customScripts/runPlayGame
