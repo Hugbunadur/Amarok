@@ -147,4 +147,16 @@ public class PlayGame {
 	sb.append("--------------------------------------------\n");
 	return sb.toString(); 
     }
+
+    public static String drawUpdatedBoard(String[][] board){
+	StringBuilder sb = new StringBuilder(); 
+	
+	sb.append("  " + board[0][0] + " | " + board[0][1] + " | " + board[0][2] + "\t\t|\t     " + " a1 | a2 | a3\n");
+	sb.append("----+---+----" + "\t\t|\t     " + "----+----+----\n");
+	sb.append("  " + board[1][0] + " | " + board[1][1] + " | " + board[1][2] + "\t\t|\t     " + " b1 | b2 | b3\n");
+	sb.append("----+---+----" + "\t\t|\t     " + "----+----+----\n");
+	sb.append("  " + board[2][0] + " | " + board[2][1] + " | " + board[2][2] + "\t\t|\t     " + " c1 | c2 | c3\n");
+	
+	return sb.append("\n").toString(); 
+    }
 }
