@@ -195,4 +195,15 @@ public class PlayGame {
 	out.print(drawUpdatedBoard(board));
 	return board;
     }
+
+    public static boolean checkDraw(int finishGame, Player player1, Player player2){
+	if(finishGame >= boardSize){
+	    out.println("--------------------------------------------"); 
+	    out.println("\t\t~~~DRAW~~~");
+	    out.println("--------------------------------------------");
+	    out.println("\tWould you like to play again!?\n");
+	    player1.setDraw(player1.getDraw() + 1);
+	    player2.setDraw(player2.getDraw() + 1); 
+	    return true;
+	}
 }

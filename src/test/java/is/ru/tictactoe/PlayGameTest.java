@@ -144,4 +144,15 @@ public class PlayGameTest {
 	    assertEquals(symbol, arr[x][y]);
 	}
     }
+
+    @Test 
+    public void testDraw(){
+	ComputerPlayer comp_A = new ComputerPlayer();
+	ComputerPlayer comp_B = new ComputerPlayer();
+	for(int i = 0; i < 15; i++){
+	    int finishGame = rand.nextInt(15);
+	    if(finishGame < 9) assertEquals(false, PlayGame.checkDraw(finishGame, comp_A, comp_B));
+	    else assertEquals(true, PlayGame.checkDraw(finishGame, comp_A, comp_B));
+	}
+    }
 }
