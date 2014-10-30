@@ -29,10 +29,11 @@ public class PlayGame {
 
 	String choice;
 	int tmp = 1;
-	do{           
+	do{
+		initialiazeTheBoard();
 	    choice = selectGame();
 	    if(choice.equals("1")|| choice.equals("2") ||choice.equals("3")){
-		//out.print(referenceBoardToString());
+		out.print(referenceBoardToString());
 	    }
 
 	    if(choice.equals("0")) {
@@ -158,5 +159,14 @@ public class PlayGame {
 	sb.append("  " + board[2][0] + " | " + board[2][1] + " | " + board[2][2] + "\t\t|\t     " + " c1 | c2 | c3\n");
 	
 	return sb.append("\n").toString(); 
+    }
+
+    //-----Game logic starts here-----
+    
+    public static String[][] initialiazeTheBoard(String[][] board){
+	for(int i = 0; i < 3; i++)
+	    for(int j = 0; j < 3; j++)
+		board[i][j] = " ";
+	return board; 
     }
 }
