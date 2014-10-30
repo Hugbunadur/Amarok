@@ -2,6 +2,8 @@
 apply plugin: 'java'
 apply plugin: 'application'
 
+
+
 mainClassName = "is.ru.tictactoe.PlayGame"
 jar {
     manifest {
@@ -38,8 +40,11 @@ dependencies {
     compile 'org.slf4j:slf4j-api:1.7.5'
     compile fileTree(dir: 'lib', include: ['*.jar'])
     compile 'com.google.code.gson:gson:2.3'
-
-
+    // selenium
+ 
     // tests
     testCompile 'junit:junit:4.11'
+
+    // taskrun
+
 }
