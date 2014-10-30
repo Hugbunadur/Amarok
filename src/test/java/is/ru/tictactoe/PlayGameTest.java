@@ -122,6 +122,26 @@ public class PlayGameTest {
 		    arr[e][t] = "X";
 	    
 	}
+    }
 
+    @Test
+    public void testSetAsymbolOnTheBoard(){
+	String[][] arr = new String[3][3];
+	Point point = new Point(1, 1);
+	String symbol = "X";
+        arr = PlayGame.initialiazeTheBoard(arr);
+	arr = PlayGame.SetAsymbolOnTheBoard(arr, point, symbol);
+	assertEquals("X", arr[1][1]);
+
+	for(int i = 0; i < 50; i++){
+	    arr = PlayGame.initialiazeTheBoard(arr);
+	    int x = rand.nextInt(3);
+	    int y = rand.nextInt(3);
+	    if(i % 2 == 0) symbol = "X";
+	    else symbol = "O";
+	    point = new Point(x, y);
+	    arr = PlayGame.SetAsymbolOnTheBoard(arr, point, symbol);
+	    assertEquals(symbol, arr[x][y]);
+	}
     }
 }

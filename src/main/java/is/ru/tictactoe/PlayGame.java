@@ -188,4 +188,11 @@ public class PlayGame {
 	}
 	return point;
     }
+
+    public static String[][] SetAsymbolOnTheBoard(String[][] board, Point point, String symbol){
+	out.println();
+	board[point.getX()][point.getY()] = symbol;
+	out.print(drawUpdatedBoard(board));
+	return board;
+    }
 }
