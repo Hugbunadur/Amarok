@@ -56,7 +56,7 @@ public class PlayGame {
 	    }
 	            
 	}while(choice.equals("1")|| choice.equals("2") ||choice.equals("3") || choice.equals("0")); 
-	//TODO: print results
+	//printResults(human_A, human_B, comp_A, comp_B); 
     }
 
     //basic functions
@@ -107,7 +107,6 @@ public class PlayGame {
 	out.println("\n--------------------------------------------"); 
 	out.println("\t\tVersion 0.1");
 	out.println("--------------------------------------------"); 
-
     }
 
     public static void printMenu(){
@@ -133,5 +132,19 @@ public class PlayGame {
 	if(compA.getWins() > 0 || compA.getDraw() > 0) out.println("    " + compA.getUsername() + " won: " + compA.getWins() + " and tied: " + compA.getDraw() +" times"); 
 	if(compB.getWins() > 0 || compB.getDraw() > 0) out.println("    " + compB.getUsername() + " won: " + compB.getWins() + " and tied: " + compB.getDraw() +" times"); 
 	out.println("--------------------------------------------\n");
+    }
+
+    public static String referenceBoardToString(){
+	StringBuilder sb = new StringBuilder();
+	sb.append("--------------------------------------------\n");
+	sb.append("\t\tCoordinate map\n");
+	sb.append("--------------------------------------------\n");
+	sb.append("\t\t a1 | a2 | a3");
+	sb.append("\n\t\t----+----+----\n");
+	sb.append(" \t\t b1 | b2 | b3");
+	sb.append("\n\t\t----+----+----\n");
+	sb.append(" \t\t c1 | c2 | c3\n");
+	sb.append("--------------------------------------------\n");
+	return sb.toString(); 
     }
 }
