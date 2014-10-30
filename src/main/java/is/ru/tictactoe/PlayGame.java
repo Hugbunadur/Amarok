@@ -22,6 +22,9 @@ public class PlayGame {
 	//ComputerPlayer comp_B = new ComputerPlayer();
 
 	printWelcome();
+	//----------------
+	String username = getUsernameForPlayer1(human_A);
+	//----------------
 	printMenu();
 
 	String choice;
@@ -55,6 +58,16 @@ public class PlayGame {
 	}while(choice.equals("1")|| choice.equals("2") ||choice.equals("3") || choice.equals("0")); 
 	//TODO: print results
     }
+
+    //basic functions
+    public static String getUsernameForPlayer1(HumanPlayer human_A){
+	String username;
+	out.println(); 
+	out.print("Username: "); username = in.readString();
+	out.println();
+	human_A.setUsername(username);
+	return username; 
+    }
     
     public static String selectGame(){
 	out.print("Your choice: "); String choice = in.readString();
@@ -67,7 +80,6 @@ public class PlayGame {
 		out.println();
 	    }
 	}
-	
 	return choice;
     }
     
