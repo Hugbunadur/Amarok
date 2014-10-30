@@ -33,7 +33,7 @@ public class PlayGame {
 	    }
 
 	    if(choice.equals("0")) {
-		//printInfo();
+		printInfo();
 	    }
 	            
 	    //set the game mode
@@ -53,11 +53,8 @@ public class PlayGame {
 	    }
 	            
 	}while(choice.equals("1")|| choice.equals("2") ||choice.equals("3") || choice.equals("0")); 
-	
 	//TODO: print results
-
     }
-    
     
     public static String selectGame(){
 	out.print("Your choice: "); String choice = in.readString();
@@ -72,6 +69,20 @@ public class PlayGame {
 	}
 	
 	return choice;
+    }
+    
+    //printing functions
+    public static void printInfo(){
+	out.println("---------------------------------------------------------------------"); 
+	out.println("\t\t\tProduction of AMAROK");
+	out.println("---------------------------------------------------------------------"); 
+	out.println("TicTacToe is a widely known Tic Tac Toe game for Linux and Unix OS.");
+	out.println("In this game, player can play against another player, compete against");
+	out.println("a computer and finally to spectate a game computer vs computer.");
+	out.println("If you dont know how to play Tic Tac Toe, see the follwoing link ");
+	out.println("for more information http://www.cs.jhu.edu/~jorgev/cs106/ttt.pdf");
+	out.println("---------------------------------------------------------------------"); 
+	out.println(); 
     }
 
     //the tilte was generated using terminal: figlet TicTacToe
@@ -100,5 +111,4 @@ public class PlayGame {
 	out.println("(4) Quit");
 	out.println("\n");
     }
-
 }
