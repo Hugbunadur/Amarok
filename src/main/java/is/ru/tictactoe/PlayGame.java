@@ -16,10 +16,10 @@ public class PlayGame {
     public static void main(String[] args){
 
 	//the game has 3 modes: human vs. human, computer vs. computer and human vs. computer
-	//HumanPlayer human_A = new HumanPlayer();
-	//HumanPlayer human_B = new HumanPlayer();
-	//ComputerPlayer comp_A = new ComputerPlayer();
-	//ComputerPlayer comp_B = new ComputerPlayer();
+	HumanPlayer human_A = new HumanPlayer();
+	HumanPlayer human_B = new HumanPlayer();
+	ComputerPlayer comp_A = new ComputerPlayer();
+	ComputerPlayer comp_B = new ComputerPlayer();
 
 	printWelcome();
 	//----------------
@@ -30,34 +30,31 @@ public class PlayGame {
 	String choice;
 	int tmp = 1;
 	do{
-		initialiazeTheBoard();
+	    initialiazeTheBoard();
+	        
 	    choice = selectGame();
-	    if(choice.equals("1")|| choice.equals("2") ||choice.equals("3")){
-		out.print(referenceBoardToString());
-	    }
-
-	    if(choice.equals("0")) {
-		printInfo();
-	    }
-	            
+	    if(choice.equals("1")|| choice.equals("2") ||choice.equals("3"))
+	    	out.print(referenceBoardToString());
+	    if(choice.equals("0"))
+	    	printInfo();
+	        
 	    //set the game mode
 	    else if(choice.equals("1")){
-		//play(human_A, human_B);
+		if(tmp == 1){
+		    tmp++;
+		    out.print("Player 2 Username: "); username = in.readString();
+		    out.println();
+		    human_B.setUsername(username);
+		}
+		play(human_A, human_B);
 	    }
-	            
-	    else if(choice.equals("2")){
-		//play(human_A, comp_A);
-	    }
-	    else if(choice.equals("3")){
-		//play(comp_A, comp_B);
-	    }
- 
-	    else if(choice.equals("4")){
-		break;
-	    }
-	            
-	}while(choice.equals("1")|| choice.equals("2") ||choice.equals("3") || choice.equals("0")); 
-	//printResults(human_A, human_B, comp_A, comp_B); 
+	        
+	    else if(choice.equals("2")) play(human_A, comp_A);
+	    else if(choice.equals("3")) play(comp_A, comp_B); 
+	    else if(choice.equals("4")) break;
+	        
+	}while(choice.equals("1")|| choice.equals("2") ||choice.equals("3") || choice.equals("0"));
+	printResults(human_A, human_B, comp_A, comp_B); 
     }
 
     //basic functions
@@ -169,4 +166,5 @@ public class PlayGame {
 		board[i][j] = " ";
 	return board; 
     }
+
 }
