@@ -179,4 +179,13 @@ public class PlayGame {
 	if(board[point.getX()][point.getY()] != " "){
 	    return true; 
 	}
+
+	public static Point makeAvalidMove(String[][] board, Point point, Player player){
+	while(board[point.getX()][point.getY()] != " ") {
+	    out.print("Invalid coordinate! Try again ");
+	    out.println(); 
+	    point = player.nextMove();
+	}
+	return point;
+    }
 }

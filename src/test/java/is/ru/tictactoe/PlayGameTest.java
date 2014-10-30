@@ -75,4 +75,53 @@ public class PlayGameTest {
 	result = PlayGame.checkForInvalidMove(testBoard, point);
 	assertEquals(false, result);
     }
+
+    @Test
+    public void testMakeAValidMove(){
+	ComputerPlayer comp_player = new ComputerPlayer();
+	String[][] arr = new String[3][3];
+	arr = PlayGame.initialiazeTheBoard(arr);
+	arr[0][0] = "X";
+	arr[0][1] = "O";
+	arr[0][2] = "X";
+	arr[1][0] = "X";
+	arr[1][1] = "O";
+	arr[1][2] = "X";
+	arr[2][0] = "O";
+	arr[2][1] = "X";
+	Point point = new Point(0,1);
+	point = PlayGame.makeAvalidMove(arr, point, comp_player);
+	assertEquals(point.getX(), 2);
+	assertEquals(point.getY(), 2);
+
+	//using same algorithm as above, test 50 different cases...
+	int tmp1 = 0;
+	int tmp2 = 0;
+	for(int i = 0; i < 50; i++){
+	    int a = rand.nextInt(3);
+	    int b = rand.nextInt(3);
+	    arr[a][b] = " "; //make a single point available in the tic-tac-toe
+	    for(int j = 0; j < 3; j++){
+		for(int k = 0; k < 3; k++){
+		    if(!arr[a][b].equals(arr[j][k])) {
+			arr[j][k] = "X";
+			tmp1 = j;
+			tmp2 = k; 
+		    }
+		}
+	    }
+
+	    point = new Point(tmp1, tmp2);
+	    point = PlayGame.makeAvalidMove(arr, point, comp_player);
+
+	    assertEquals(point.getX(), a);
+	    assertEquals(point.getY(), b);
+	    
+	    for(int e = 0; e < 3; e++)
+		for(int t = 0; t < 3; t++)
+		    arr[e][t] = "X";
+	    
+	}
+
+    }
 }
