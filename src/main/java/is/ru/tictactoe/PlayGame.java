@@ -47,8 +47,8 @@ public class PlayGame {
 		play(human_A, human_B);
 	    }
 	        
-	    else if(choice.equals("2")) //play(human_A, comp_A);
-	    else if(choice.equals("3")) //play(comp_A, comp_B); 
+	    else if(choice.equals("2")) play(human_A, comp_A);
+	    else if(choice.equals("3")) play(comp_A, comp_B);
 	    else if(choice.equals("4")) break;
 	        
 	}while(choice.equals("1")|| choice.equals("2") ||choice.equals("3") || choice.equals("0"));
@@ -172,6 +172,7 @@ public class PlayGame {
 	String symbol = "X";
 	Player player;
 	String[][] board = new String [3][3];
+	board = initialiazeTheBoard(board);
 	}
 
 }
