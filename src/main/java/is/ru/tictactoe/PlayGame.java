@@ -68,7 +68,7 @@ public class PlayGame {
 	human_A.setUsername(username);
 	return username; 
     }
-    
+
     public static String selectGame(){
 	out.print("Your choice: "); String choice = in.readString();
 	out.println();
@@ -122,5 +122,16 @@ public class PlayGame {
 	out.println("(0) Info");
 	out.println("(4) Quit");
 	out.println("\n");
+    }
+
+    public static void printResults(Player humanA, Player humanB, Player compA, Player compB){
+	out.println("--------------------------------------------");
+	out.println("\t\tResults");
+	out.println("--------------------------------------------");
+	if(humanA.getWins() > 0 || humanA.getDraw() > 0) out.println("    " + humanA.getUsername() + " won: " + humanA.getWins() + " and tied: " + humanA.getDraw() +" times"); 
+	if(humanB.getWins() > 0 || humanB.getDraw() > 0) out.println("    " + humanB.getUsername() + " won: " + humanB.getWins() + " and tied: " + humanB.getDraw() +" times"); 
+	if(compA.getWins() > 0 || compA.getDraw() > 0) out.println("    " + compA.getUsername() + " won: " + compA.getWins() + " and tied: " + compA.getDraw() +" times"); 
+	if(compB.getWins() > 0 || compB.getDraw() > 0) out.println("    " + compB.getUsername() + " won: " + compB.getWins() + " and tied: " + compB.getDraw() +" times"); 
+	out.println("--------------------------------------------\n");
     }
 }
