@@ -29,12 +29,12 @@ public class PlayGame {
 
 	String choice;
 	int tmp = 1;
-	do{
+	do{ 
 	    choice = selectGame();
 	    if(choice.equals("1")|| choice.equals("2") ||choice.equals("3"))
-	    	out.print(referenceBoardToString());
+	    out.print(referenceBoardToString());
 	    if(choice.equals("0"))
-	    	printInfo();
+	    printInfo();
 	        
 	    //set the game mode
 	    else if(choice.equals("1")){
@@ -44,25 +44,16 @@ public class PlayGame {
 		    out.println();
 		    human_B.setUsername(username);
 		}
-		//play(human_A, human_B);
+		play(human_A, human_B);
 	    }
 	        
 	    else if(choice.equals("2")) //play(human_A, comp_A);
-	    else if(choice.equals("3")) //play(comp_A, comp_B);
+	    else if(choice.equals("3")) //play(comp_A, comp_B); 
 	    else if(choice.equals("4")) break;
 	        
 	}while(choice.equals("1")|| choice.equals("2") ||choice.equals("3") || choice.equals("0"));
-	//printResults(human_A, human_B, comp_A, comp_B); 
-		//play(human_A, human_B);
-	    }
-	        
-	    else if(choice.equals("2")) // play(human_A, comp_A);
-	    else if(choice.equals("3")) // play(comp_A, comp_B); 
-	    else if(choice.equals("4")) break;
-	        
-	}while(choice.equals("1")|| choice.equals("2") ||choice.equals("3") || choice.equals("0"));
-	//printResults(human_A, human_B, comp_A, comp_B); 
-    }
+	printResults(human_A, human_B, comp_A, comp_B); 
+   }
 
     //basic functions
     public static String getUsernameForPlayer1(HumanPlayer human_A){
