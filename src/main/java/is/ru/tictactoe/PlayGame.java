@@ -175,4 +175,8 @@ public class PlayGame {
 	board = initialiazeTheBoard(board);
 	}
 
+    public static boolean checkForInvalidMove(String[][] board, Point point){
+	if(board[point.getX()][point.getY()] != " "){
+	    return true; 
+	}
 }
