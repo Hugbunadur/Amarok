@@ -220,7 +220,7 @@ public class PlayGame {
     }
 
     public static boolean checkWins(String[][] board){ 
-	if(checkHorizontalforX(board) || checkHorizontalforO(board)) return true;
+	if(checkHorizontalforX(board) || checkHorizontalforO(board)|| checkVerticalforX(board) || checkVerticalforO(board)) return true;
 	return false; 
     }
 
@@ -263,6 +263,48 @@ public class PlayGame {
 	}
 	
 	if(h1 || h2 || h3) return true;
+	return false; 
+    }
+
+    private static boolean checkVerticalforX(String[][] board){
+	boolean v1 = true;
+	boolean v2 = true;
+	boolean v3 = true;
+	
+	for(int i = 0; i < 3; i++){
+	    if(board[i][0] != "X") v1 = false; 
+	}
+	
+	for(int i = 0; i < 3; i++){
+	    if(board[i][1] != "X") v2 = false; 
+	}
+	
+	for(int i = 0; i < 3; i++){
+	    if(board[i][2] != "X") v3 = false; 
+	}
+	
+	if(v1 || v2 || v3) return true;
+	return false; 
+    }
+    
+    private static boolean checkVerticalforO(String[][] board){
+	boolean v1 = true;
+	boolean v2 = true;
+	boolean v3 = true;
+	
+	for(int i = 0; i < 3; i++){
+	    if(board[i][0] != "O") v1 = false; 
+	}
+	
+	for(int i = 0; i < 3; i++){
+	    if(board[i][1] != "O") v2 = false; 
+	}
+	
+	for(int i = 0; i < 3; i++){
+	    if(board[i][2] != "O") v3 = false; 
+	}
+	
+	if(v1 || v2 || v3) return true;
 	return false; 
     }
 }

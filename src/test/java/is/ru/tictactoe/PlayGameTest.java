@@ -166,7 +166,7 @@ public class PlayGameTest {
     }
 
     @Test
-    public void testCheckWins(){
+    public void testCheckWinsHorizontal(){
 	String[][] win = new String[3][3];
 	//test horizontal
 	for(int i = 0; i < 3; i++){
@@ -175,6 +175,19 @@ public class PlayGameTest {
 		else win[i][j] = "X";
 	    }
 	assertEquals(true, PlayGame.checkWins(win));
+	}
     }
-}
+
+    @Test
+    public void testCheckWinsVertical(){
+	String[][] win = new String[3][3];
+	//test vertical
+	for(int i = 0; i < 3; i++){
+	    for(int j = 0; j < 3; j++){
+		if(i % 2 == 0)win[j][i] = "X";
+		else win[j][i] = "O";
+	    }
+	    assertEquals(true, PlayGame.checkWins(win));
+	}
+    }
 }
