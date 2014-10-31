@@ -126,10 +126,10 @@ public class PlayGame {
 	out.println("--------------------------------------------");
 	out.println("\t\tResults");
 	out.println("--------------------------------------------");
-	if(humanA.getWins() > 0 || humanA.getDraw() > 0) out.println("    " + humanA.getUsername() + " won: " + humanA.getWins() + " and tied: " + humanA.getDraw() +" times"); 
-	if(humanB.getWins() > 0 || humanB.getDraw() > 0) out.println("    " + humanB.getUsername() + " won: " + humanB.getWins() + " and tied: " + humanB.getDraw() +" times"); 
-	if(compA.getWins() > 0 || compA.getDraw() > 0) out.println("    " + compA.getUsername() + " won: " + compA.getWins() + " and tied: " + compA.getDraw() +" times"); 
-	if(compB.getWins() > 0 || compB.getDraw() > 0) out.println("    " + compB.getUsername() + " won: " + compB.getWins() + " and tied: " + compB.getDraw() +" times"); 
+	if(humanA.getWins() > 0 || humanA.getDraw() > 0 || humanA.getLost() > 0) out.println("    " + humanA.getUsername() + " won: " + humanA.getWins() + " loss: " + humanA.getLost() + " and tied: " + humanA.getDraw() +" times"); 
+	if(humanB.getWins() > 0 || humanB.getDraw() > 0 || humanB.getLost() > 0) out.println("    " + humanB.getUsername() + " won: " + humanB.getWins() + " loss: " + humanB.getLost() + " and tied: " + humanB.getDraw() +" times"); 
+	if(compA.getWins() > 0 || compA.getDraw() > 0 || compA.getLost() > 0) out.println("    " + compA.getUsername() + " won: " + compA.getWins() + " loss: " + compA.getLost() + " and tied: " + compA.getDraw() +" times"); 
+	if(compB.getWins() > 0 || compB.getDraw() > 0|| compB.getLost() > 0) out.println("    " + compB.getUsername() + " won: " + compB.getWins() + " loss: " + compB.getLost() + " and tied: " + compB.getDraw() +" times"); 
 	out.println("--------------------------------------------\n");
     }
 
@@ -174,16 +174,18 @@ public class PlayGame {
 	boolean win = false;
 	int finishGame = 0;
 	String symbol = "X";
-	Player player;
+	Player player, loser;
 	String[][] board = new String [3][3];
 	board = initialiazeTheBoard(board);
 	while(!win){
 	    if(finishGame % 2 != 0) { //player2 makes a move
 		player = player2;
+		loser = player1;
 		symbol = "O";
 	    }else { // player 1 makes a move
 		symbol = "X";
-		player = player1; 
+		player = player1;
+		loser = player2; 
 	    }
 	    
 	    point = getApointFromThePlayer(player);
@@ -195,7 +197,7 @@ public class PlayGame {
 	            
 	    win = checkWins(board);
 	    if(win){
-		setVictoryForSpecificPlayer(player);
+		setVictoryForSpecificPlayer(player, player2);
 		return;
 	    }
 	        
@@ -348,8 +350,9 @@ public class PlayGame {
 	return false;
     }
 
- public static void setVictoryForSpecificPlayer(Player player){
+ public static void setVictoryForSpecificPlayer(Player player, Player loser){
 	player.setWins(player.getWins() + 1);
+	loser.setLost(loser.getLost() + 1);
 	out.println("--------------------------------------------"); 
 	out.println("\t\t~~~Victory~~~");
 	out.println("--------------------------------------------"); 

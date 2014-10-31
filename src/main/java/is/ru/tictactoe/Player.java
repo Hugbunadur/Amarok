@@ -8,6 +8,7 @@ public class Player {
     protected static Out out = new Out();
     
     private int wins;
+    private int lost;
     private int draws;
     private String username;
 
@@ -21,6 +22,14 @@ public class Player {
     
     public int getWins(){
 	   return wins;
+    }
+
+    public void setLost(int new_lost){
+        lost = new_lost;
+    }
+
+    public int getLost(){
+        return lost;
     }
 
     public void setDraw(int new_draw){
