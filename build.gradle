@@ -1,6 +1,7 @@
 
 apply plugin: 'java'
 apply plugin: 'application'
+apply plugin: 'jacoco'
 
 repositories {
   	jcenter()
@@ -103,4 +104,25 @@ applicationDistribution.from(createDocs) {
 
 run{
 	standardInput = System.in	
+}
+
+jacoco {
+       toolVersion = "0.7.1.201405082137"
+       reportsDir = file("$buildDir/codeCoverageReport")
+}
+
+jacocoTestReport {
+	reports {
+		xml.enabled false
+		csv.enabled false
+		html.destination "$buildDir/ccReport"
+	}
+}
+
+test {
+     jacoco {
+     	    append = false
+	    destinationFile = file("$buildDir/codeCoverageReport/ccTest.exec")
+	    classDumpFile = file("$buildDir/codeCoverageReport/classpathdumps")
+     }
 }
