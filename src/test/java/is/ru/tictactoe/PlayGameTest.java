@@ -164,4 +164,17 @@ public class PlayGameTest {
 	    if(ptn.getX() > 2 || ptn.getY() > 2) fail();
 	}
     }
+
+    @Test
+    public void testCheckWins(){
+	String[][] win = new String[3][3];
+	//test horizontal
+	for(int i = 0; i < 3; i++){
+	    for(int j = 0; j < 3; j++){
+		if(i % 2 == 0) win[i][j] = "O";
+		else win[i][j] = "X";
+	    }
+	assertEquals(true, PlayGame.checkWins(win));
+    }
+}
 }

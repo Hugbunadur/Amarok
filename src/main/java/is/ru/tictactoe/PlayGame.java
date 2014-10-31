@@ -215,4 +215,52 @@ public class PlayGame {
 	out.println(player.getUsername()+ "'s " + "time to play "); 
 	return player.nextMove();
     }
+
+    public static boolean checkWins(String[][] board){ 
+	if(checkHorizontalforX(board) || checkHorizontalforO(board)) return true;
+	return false; 
+    }
+
+    private static boolean checkHorizontalforX(String[][] board){
+	boolean h1 = true;
+	boolean h2 = true;
+	boolean h3 = true;
+	
+	for(int i = 0; i < 3; i++){
+	    if(board[0][i] != "X") h1 = false; 
+	}
+	
+	for(int i = 0; i < 3; i++){
+	    if(board[1][i] != "X") h2 = false; 
+	}
+	
+	for(int i = 0; i < 3; i++){
+	    if(board[2][i] != "X") h3 = false; 
+	}
+	
+	if(h1 || h2 || h3) return true;
+	return false; 
+    }
+
+    private static boolean checkHorizontalforO(String[][] board){
+	boolean h1 = true;
+	boolean h2 = true;
+	boolean h3 = true;
+	
+	for(int i = 0; i < 3; i++){
+	    if(board[0][i] != "O") h1 = false; 
+	}
+	
+	for(int i = 0; i < 3; i++){
+	    if(board[1][i] != "O") h2 = false; 
+	}
+	
+	for(int i = 0; i < 3; i++){
+	    if(board[2][i] != "O") h3 = false; 
+	}
+	
+	if(h1 || h2 || h3) return true;
+	return false; 
+    }
 }
+
