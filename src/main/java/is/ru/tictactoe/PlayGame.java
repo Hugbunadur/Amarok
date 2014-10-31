@@ -249,7 +249,7 @@ public class PlayGame {
 
 
     public static boolean checkWins(String[][] board){ 
-	if(checkHorizontalforX(board) || checkHorizontalforO(board)|| checkVerticalforX(board) || checkVerticalforO(board) || checkDiagnal(board)) return true;
+	if(checkHorizontalforX(board) || checkHorizontalforO(board)|| checkVerticalforX(board) || checkVerticalforO(board) || checkDiagonal(board)|| checkInvDiagonal(board)) return true;
 	return false; 
     }
 
@@ -268,8 +268,7 @@ public class PlayGame {
 	
 	for(int i = 0; i < 3; i++){
 	    if(board[2][i] != "X") h3 = false; 
-	}
-	
+	}	
 	if(h1 || h2 || h3) return true;
 	return false; 
     }
@@ -336,13 +335,18 @@ public class PlayGame {
 	if(v1 || v2 || v3) return true;
 	return false; 
     }
-
-    private static boolean checkDiagnal(String[][] board){
+ 
+    private static boolean checkDiagonal(String[][] board){
 	if(board[0][0] == "X" && board[1][1] == "X" && board[2][2] == "X") return true; 
 	else if(board[0][0] == "O" && board[1][1] == "O" && board[2][2] == "O") return true; 
 	return false;
     }
 
+    private static boolean checkInvDiagonal(String[][] board){
+	if(board[0][2] == "X" && board[1][1] == "X" && board[2][0] == "X") return true; 
+	else if(board[0][2] == "O" && board[1][1] == "O" && board[2][0] == "O") return true; 
+	return false;
+    }
 
  public static void setVictoryForSpecificPlayer(Player player){
 	player.setWins(player.getWins() + 1);
