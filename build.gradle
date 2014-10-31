@@ -62,7 +62,7 @@ task seleniumXvfb(type: Test, dependsOn: installApp) {
 
     	doFirst {
         	'bin/xvfb start'.execute()
-        	'build/install/sparkIt/bin/sparkIt &'.execute()
+        	'build/install/Amarok/bin/Amarok &'.execute()
     	}
     
     	doLast {
