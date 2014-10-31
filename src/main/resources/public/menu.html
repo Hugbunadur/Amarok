@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>TicTacToe</title>
+        <link rel="stylesheet" href="main.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/bootstrap/3.3.0/css/bootstrap-theme.min.css">
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+			<script>
+			$(document).ready(function(){
+			  
+				$("#show").click(function(){
+			    	$(".playertwo").first().show();
+			  	});
+
+
+			  	$("#btn2").click(function(){
+
+			  		if($("#PlayerName2").val().length == 0) {
+			  			alert("You must enter name of player 2"); 		
+			  		}
+			  		else{
+			  			window.location.href = 'game.html';
+			  		}
+			  	});
+			});
+			</script>
+    </head>
+
+
+    <body>
+    	<!-- main container -->
+        <div class="container">
+
+			<div class="header">
+				<h3>Amorak</h3>
+	        	<h1>TICTACTOE</h1>
+	        	<p>Welcome to our wonderful game.<br>
+	        	Please make a choice below</p>
+	        </div>	
+
+
+			<div>
+				
+				<input type="submit" value="Player vs Computer" class="btn" onclick="window.location.href='game.html'"/><br>
+				
+				
+				<input type="submit" value="Computer vs Computer" class="btn" onclick="window.location.href='game.html'"/><br>
+				
+				<input type="submit" value="Player vs Player" class="btn" id="show"/>
+				<div class="playertwo">
+					<input type="text" id="PlayerName1" name="PlayerName1" placeholder="Enter name of second player"/> <br><br>
+					<input type="submit" value="Continue" class="btn" id="btn2"/> 
+				</div>
+	        </div>
+
+			
+			
+
+
+		</div>
+    </body>
+</html>        	

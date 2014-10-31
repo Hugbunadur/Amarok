@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>TicTacToe</title>
+        <link rel="stylesheet" href="main.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/bootstrap/3.3.0/css/bootstrap-theme.min.css">
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+			<script>
+			$(document).ready(function(){
+				$("#btn1").click(function(){
+
+			  		if($("#PlayerName").val().length == 0) {
+			  			alert("Field can not be empty"); 		
+			  		}
+			  		else{
+			  			window.location.href = 'menu.html';
+			  		}
+			  	});
+			});
+			</script>
+    </head>
+
+
+    <body>
+    	<!-- main container -->
+        <div class="container">
+
+			<div class="header">
+				<h3>Amorak</h3>
+				
+	        	<h1>TICTACTOE</h1>
+	        	<p>Welcome to our wonderful game.<br>
+	        	Please enter your player name to continue</p>
+	        </div>	
+
+
+			<div>
+				<input type="text" id="PlayerName" name="PlayerName" placeholder="Enter your name"/> <br><br>
+				<input type="submit" value="Continue" class="btn" id="btn1"/> <br><br><br>
+	        </div>
+
+		</div>
+    </body>
+</html>        	
