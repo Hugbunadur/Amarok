@@ -1,12 +1,8 @@
 package is.ru.tictactoe;
 
-import edu.princeton.cs.introcs.In;
-import edu.princeton.cs.introcs.Out;
 
 public class Player {
-    protected static In in = new In();
-    protected static Out out = new Out();
-    
+   
     private int wins;
     private int lost;
     private int draws;
