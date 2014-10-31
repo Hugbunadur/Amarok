@@ -1,83 +1,78 @@
 @import url(http://fonts.googleapis.com/css?family=Lato:400,900);  /* <-- Just for the demo, Yes I like pretty fonts... */
 
-
 body {
+    margin: 0;
     font-size:16px;
     font-family: 'Lato',verdana, sans-serif;
-    color: #333;
+    font-weight: bold;
+    color: #0b495e;
     text-align:center;
     background:#f9f8f6;
-    background-image: url("gfx/bg-grad.png");
-    background-repeat: no-repeat;
-}
-
-.container {
-	z-index:1;
+    background-image: url("gfx/bg-page.png");
 }
 
 .header {
-	font-family: 'Lato',verdana, sans-serif;
-	font-size: 4vw;
-	color: #333;
+    height:45px;
+    background-image: url("gfx/bg-header.png");
+    border:0px;
+    width:100%;
+    margin:0px auto;
 }
 
-#a1 {
-        background: url("gfx/o.png") repeat scroll 0 0 transparent;
-        border-radius: 4px 4px 0 0;
-        height: 75px;
-        left: 54px;
-        position: relative;
-        top: 25px;
-        width: 90px;
-    }
-
+.box {
+  margin: 0px  auto;
+  padding: 10px;
+  width: 50%;
+  border: 1px solid #bbd9e4;
+  background: #fff;
+  box-shadow: 0px 2px 3px #cbd8dc;
+  border-radius: 10px;
+}
 
 p {
 	font-size: 20px;
 }
+
 h1 {
 	font-size: 80px;
+  color: #394859;
+  margin: 10px;
+  font-style: italic;
+  text-shadow: 1px 1px 1px rgba(150, 150, 150, 1);
 }
 
-h3 {
-	font-size: 40px;
+h2 {
+  font-size: 40px;
+  color: #394859;
+  margin: 5px;
+  text-shadow: 1px 1px 1px rgba(150, 150, 150, 1);
 }
-
 
 .playertwo {
 	display:none;
-	z-index: 5;
-}
-
-#board {
-    background: gray;
-    padding: 0;
-    margin: 3px;
-    display: none;
-    float: left;
-    position: relative;
-    width: 100px;
-    height: 100px;
-    z-index: 4;
 }
 
 .board {
-	margin-left: auto;
+	  margin-left: auto;
     margin-right: auto;
     width: 50%;
     height: 50%;
-
 }
 
 .square {
 	float:left;
 	position: relative;
 	width: 30%;
-	margin: 1.66%;
-	overflow: hidden;
+	margin: 1.5%;
 	border-style: 1px #ccc;
-	background-color: #e9e9e4;
-	box-shadow: 2px 2px 3px #ccc;
+	background-color: #c5edf9;
+  border-radius: 6px;
+  -webkit-transition: background-color 1s;
+  transition: background-color 1s;
+}
+
+.square:hover {
+    background-color: #fff;
 }
 
 .showX {
@@ -86,29 +81,20 @@ h3 {
 	width: 100%;
 }
 
-.table{
-    display:table;
-    width:100%;
-    height:100%;
-}
-
-.table-cell{
-    display:table-cell;
-    vertical-align:middle;
+#footer {
+  width:100%;
+  height:45px;
+  position:absolute;
+  bottom:0;
+  left:0;
+  background:#394859;
 }
 
 .content .scale{
     width: auto;
     height: auto;
     max-height:90%;
-    max-width:100%;
-}
-
-.info {
-	position: relative;
-    width: auto;
-    height: auto;
-    z-index: 3;
+    max-width:90%;
 }
 
 input[type="text"]
@@ -116,24 +102,30 @@ input[type="text"]
     background-color: #fff;
     font-size: 16px;
     width: 300px;
-    height: 30px;
-    border: 2px solid #ccc;
+    height: 40px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    -webkit-transition: background-color 1s;
+    transition: background-color 1s;
 }
 
 .btn {
-  background: #3498db;
-  background-image: -webkit-linear-gradient(top, #3498db, #2980b9);
-  background-image: -moz-linear-gradient(top, #3498db, #2980b9);
-  background-image: -ms-linear-gradient(top, #3498db, #2980b9);
-  background-image: -o-linear-gradient(top, #3498db, #2980b9);
-  background-image: linear-gradient(to bottom, #3498db, #2980b9);
-  -webkit-border-radius: 10;
-  -moz-border-radius: 10;
-  border-radius: 10px;
+  background: #05aee9;
+  background-image: -webkit-linear-gradient(top, #05aee9, #2980b9);
+  background-image: -moz-linear-gradient(top, #05aee9, #2980b9);
+  background-image: -ms-linear-gradient(top, #05aee9, #2980b9);
+  background-image: -o-linear-gradient(top, #05aee9, #2980b9);
+  background-image: linear-gradient(to bottom, #05aee9, #2980b9);
+  -webkit-border-radius: 6;
+  -moz-border-radius: 6;
+  border-radius: 6px;
   font-family: Lato;
   color: #ffffff;
-  font-size: 20px;
-  padding: 10px 20px 10px 20px;
+  font-size: 14px;
+  font-weight: bold;
+  border: 1px;
+  padding: 10px 10px 10px 10px;
+  margin-bottom: 15px;
   width: 300px;
   text-decoration: none;
 }
@@ -147,16 +139,3 @@ input[type="text"]
   background-image: linear-gradient(to bottom, #3cb0fd, #3498db);
   text-decoration: none;
 }
-
-
-#cover{ 
-	position:fixed; top:0; left:0; background:rgba(0,0,0,0.6); z-index:5; width:100%; height:100%; display:none; } 
-
-#loginScreen { 
-	height:380px; width:340px; margin:0 auto; position:relative; z-index:10; display:none; background: url(login.png) no-repeat; border:5px solid #cccccc; border-radius:10px; } 
-
-#loginScreen:target, 
-#loginScreen:target + #cover{ display:block; opacity:2; } 
-.cancel { display:block; position:absolute; top:3px; right:2px; background:rgb(245,245,245); color:black; height:30px; width:35px; font-size:30px; text-decoration:none; text-align:center; font-weight:bold; } - See more at: http://www.corelangs.com/css/box/fulloverlay.html#sthash.ttBq5YmU.dpuf
-
-
