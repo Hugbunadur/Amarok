@@ -13,6 +13,7 @@ body {
 
 .header {
     height:45px;
+    text-align: left;
     background-image: url("gfx/bg-header.png");
     border:0px;
     width:100%;
@@ -64,7 +65,7 @@ h2 {
 	position: relative;
 	width: 30%;
 	margin: 1.5%;
-	border-style: 1px #ccc;
+  border-color: #ccc;
 	background-color: #c5edf9;
   border-radius: 6px;
   -webkit-transition: background-color 1s;

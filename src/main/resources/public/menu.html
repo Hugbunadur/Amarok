@@ -6,28 +6,11 @@
         <link rel="stylesheet" href="main.css">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/bootstrap/3.3.0/css/bootstrap-theme.min.css">
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-			<script>
-			$(document).ready(function(){
-			  
-				$("#show").click(function(){
-			    	$(".playertwo").first().show();
-			  	});
-
-			  	$("#btn2").click(function(){
-
-			  		if($("#PlayerName2").val().length == 0) {
-			  			alert("You must enter name of player 2"); 		
-			  		}
-			  		else{
-			  			window.location.href = 'game.html';
-			  		}
-			  	});
-			});
-			</script>
+		<script src="script.js"></script>
     </head>
 
     <body>
-    	<div class="header"><a href="index.html"><img src="gfx/logo.png" align="left"></a></div>
+    	<div class="header"><a href="index.html"><img alt="logo" src="gfx/logo.png"></a></div>
         <div class="container">
 	        <h1>TicTacToe</h1>
 
@@ -40,11 +23,9 @@
 				<input type="submit" value="PLAYER vs PLAYER" class="btn" id="show"/>
 				<div class="playertwo">
 					<input type="text" id="PlayerName2" name="PlayerName2" placeholder=" Enter name of second player"/> <br><br>
-					<input type="submit" value="Continue" class="btn" id="btn2"/> 
+					<input type="submit" value="Continue" class="btn" id="btn_continue2"/> 
 				</div>
 	        </div>
-
-	        <div id="footer">About</div>
 		</div>
     </body>
 </html>        	
