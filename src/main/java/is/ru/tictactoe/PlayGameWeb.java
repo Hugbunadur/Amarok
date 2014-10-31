@@ -1,5 +1,6 @@
 package is.ru.sparkit;
 
+/*
 import spark.*;
 import static spark.Spark.*;
 import spark.servlet.SparkApplication;
@@ -9,3 +10,5 @@ public class PlayGameWeb implements SparkApplication {
 	//TODO: implement
     }
 }
+
+*/
