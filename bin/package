@@ -1,0 +1,6 @@
+#!/bin/bash
+if [ ! -d classes ]; then
+  mkdir classes
+fi
+
+javac -classpath "classes:lib/algs4-package.jar:.:lib/stdlib-package.jar" `~/Amarok/src/main/java/is/ru/tictactoe/*.java -d classes`

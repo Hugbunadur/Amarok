@@ -1,0 +1,5 @@
+#!/bin/bash
+
+cp ~/Amarok/build/libs/Amarok.jar ~/Amarok/tmp/Amarok.jar
+
+
