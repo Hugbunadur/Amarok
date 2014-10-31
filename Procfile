@@ -1,1 +1,1 @@
-web: build/install/TTFF/Amarok/bin/
+web: build/install/TTFF/Amarok/bin/customScript/playTicTacToe
