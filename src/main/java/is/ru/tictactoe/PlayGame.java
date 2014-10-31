@@ -21,6 +21,9 @@ public class PlayGame {
 	ComputerPlayer comp_A = new ComputerPlayer();
 	ComputerPlayer comp_B = new ComputerPlayer();
 
+	comp_A.setUsername("Awesom-O"); //set computer names
+	comp_B.setUsername("R2-D2"); 
+	
 	printWelcome();
 	//----------------
 	String username = getUsernameForPlayer1(human_A);
