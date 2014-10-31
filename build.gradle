@@ -48,3 +48,7 @@ dependencies {
     // taskrun
 
 }
+
+run{
+	standardInput = System.in	
+}
