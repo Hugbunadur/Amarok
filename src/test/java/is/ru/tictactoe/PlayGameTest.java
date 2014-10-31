@@ -190,4 +190,19 @@ public class PlayGameTest {
 	    assertEquals(true, PlayGame.checkWins(win));
 	}
     }
+    
+    @Test
+    public void testCheckWinsDiagonal(){
+	String[][] win = new String[3][3];
+	//test diagonal
+        win[0][0] = "O";
+        win[1][1] = "O";
+        win[2][2] = "O";       
+	assertEquals(true, PlayGame.checkWins(win));
+
+	win[0][0] = "X";     
+        win[1][1] = "X";     
+	win[2][2] = "X";
+	assertEquals(true, PlayGame.checkWins(win));
+    }
 }
