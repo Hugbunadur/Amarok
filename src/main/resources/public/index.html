@@ -1,29 +1,17 @@
 <!DOCTYPE html>
 <html>
     <head>
+    	 <meta http-equiv="content-type" content="text/html; charset=utf-8" />
         <title>TicTacToe</title>
         <link rel="stylesheet" href="main.css">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/bootstrap/3.3.0/css/bootstrap-theme.min.css">
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-			<script>
-			$(document).ready(function(){
-				$("#btn1").click(function(){
-
-			  		if($("#PlayerName").val().length == 0) {
-			  			alert("You must enter a player name!"); 		
-			  		}
-			  		else{
-			  			window.location.href = 'menu.html';
-			  		}
-			  	});
-			});
-			</script>
+		<script src="script.js"></script>	
     </head>
-
 
     <body>
     	<!-- main container -->
-    	<div class="header"><img src="gfx/logo.png" align="left"></div>
+    	<div class="header"><a href="index.html"><img alt="logo" src="gfx/logo.png"></a></div>
         <div class="container">
 			<h1>TicTacToe</h1>
 
@@ -31,10 +19,8 @@
 	        	<p>Welcome to our wonderful game!<br>
 	        	Please enter your player name to continue</p>
 	        	<input type="text" id="PlayerName" name="PlayerName" placeholder=" Player name"/> <br><br>
-				<input type="submit" value="Continue" class="btn" id="btn1"/> <br><br><br>
+				<input type="submit" value="Continue" class="btn" id="btn_continue"/> <br><br><br>
 	        </div>	
 		</div>
-
-		<div id="footer">About</div>
     </body>
 </html>        	
