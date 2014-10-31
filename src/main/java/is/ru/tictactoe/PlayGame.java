@@ -179,6 +179,7 @@ public class PlayGame {
 	if(board[point.getX()][point.getY()] != " "){
 	    return true; 
 	}
+	return false;
 	}
 
 	public static Point makeAvalidMove(String[][] board, Point point, Player player){
@@ -207,6 +208,7 @@ public class PlayGame {
 	    player2.setDraw(player2.getDraw() + 1); 
 	    return true;
 	}
+	return false;
 	}
 
 	public static Point getApointFromThePlayer(Player player){
