@@ -23,7 +23,7 @@ public class PlayGame {
 
 	comp_A.setUsername("Awesom-O"); //set computer names
 	comp_B.setUsername("R2-D2"); 
-	
+
 	printWelcome();
 	//----------------
 	String username = getUsernameForPlayer1(human_A);
@@ -168,6 +168,7 @@ public class PlayGame {
 	return board; 
     }
 
+    //play the game...
     public static void play(Player player1, Player player2){
 	Point point;
 	boolean win = false;
@@ -176,6 +177,33 @@ public class PlayGame {
 	Player player;
 	String[][] board = new String [3][3];
 	board = initialiazeTheBoard(board);
+	while(!win){
+	    if(finishGame % 2 != 0) { //player2 makes a move
+		player = player2;
+		symbol = "O";
+	    }else { // player 1 makes a move
+		symbol = "X";
+		player = player1; 
+	    }
+	    
+	    point = getApointFromThePlayer(player);
+	    if(checkForInvalidMove(board, point)){
+		point = makeAvalidMove(board, point, player); 
+	    }
+	    board = SetAsymbolOnTheBoard(board, point, symbol);
+	    finishGame++; //player1 has made a move
+	            
+	    win = checkWins(board);
+	    if(win){
+		setVictoryForSpecificPlayer(player);
+		return;
+	    }
+	        
+	    // check if draw
+	    if(checkDraw(finishGame, player1, player2)){
+		return;
+	    }      
+	}
 	}
 
     public static boolean checkForInvalidMove(String[][] board, Point point){
@@ -219,6 +247,7 @@ public class PlayGame {
 	return player.nextMove();
     }
 
+
     public static boolean checkWins(String[][] board){ 
 	if(checkHorizontalforX(board) || checkHorizontalforO(board)|| checkVerticalforX(board) || checkVerticalforO(board)) return true;
 	return false; 
@@ -261,10 +290,19 @@ public class PlayGame {
 	for(int i = 0; i < 3; i++){
 	    if(board[2][i] != "O") h3 = false; 
 	}
+
+    public static void setVictoryForSpecificPlayer(Player player){
+	player.setWins(player.getWins() + 1);
+	out.println("--------------------------------------------"); 
+	out.println("\t\t~~~Victory~~~");
+	out.println("--------------------------------------------"); 
+	out.println("\t\t" + player.getUsername() + " won!");
+
 	
-	if(h1 || h2 || h3) return true;
-	return false; 
+	out.println("\tWould you like to play again!?\n");
+	printMenu();
     }
+
 
     private static boolean checkVerticalforX(String[][] board){
 	boolean v1 = true;
@@ -307,5 +345,8 @@ public class PlayGame {
 	if(v1 || v2 || v3) return true;
 	return false; 
     }
+}
+
+
 }
 
