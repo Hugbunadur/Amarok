@@ -2,51 +2,103 @@
 apply plugin: 'java'
 apply plugin: 'application'
 
+repositories {
+  	jcenter()
+}
+
+sourceSets {
+    	selenium
+    	seleniumXvfb
+}
+
+dependencies {
+        compile 'org.slf4j:slf4j-api:1.7.5'
+        compile fileTree(dir: 'lib', include: ['*.jar'])
+
+        // gson
+        compile 'com.google.code.gson:gson:2.3'
+
+        // selenium
+        seleniumCompile 'junit:junit:4.11'
+    	seleniumCompile 'org.seleniumhq.selenium:selenium-java:2.39.0'
+	// selendiumXvfb
+        seleniumXvfbCompile 'junit:junit:4.11'
+    	seleniumXvfbCompile 'org.seleniumhq.selenium:selenium-java:2.39.0'
+         // tests
+        testCompile 'junit:junit:4.11'
+
+        // taskrun
+
+}
+
 
 
 mainClassName = "is.ru.tictactoe.PlayGame"
+
+task selenium(type: Test, dependsOn: installApp) {
+    	testClassesDir = sourceSets.selenium.output.classesDir
+    	classpath = sourceSets.selenium.runtimeClasspath
+
+    	ant.condition(property: "os", value: "windows") { os(family: "windows") }
+    	ant.condition(property: "os", value: "unix"   ) { os(family: "unix")    }
+
+    	doFirst {
+        	switch(ant.properties.os) {
+            		case 'unix':
+                	'build/install/tictactoe/bin/tictactoe &'.execute()
+                	break
+            		case 'windows':
+                	'build\\install\\tictactoe\\bin\\tictactoe.bat'.execute()
+               		 break
+        }
+    }
+}
+
+task seleniumXvfb(type: Test, dependsOn: installApp) {
+    	testClassesDir = sourceSets.selenium.output.classesDir
+    	classpath = sourceSets.selenium.runtimeClasspath
+
+    	environment "DISPLAY", ":99"
+
+    	doFirst {
+        	'bin/xvfb start'.execute()
+        	'build/install/sparkIt/bin/sparkIt &'.execute()
+    	}
+    
+    	doLast {
+        	'bin/xvfb stop'.execute()
+    	}
+}
+
+task stage { 
+    	dependsOn installApp 
+}
+
+test {
+    	testLogging {
+        	exceptionFormat = 'full'
+    	}
+}
+
 jar {
-    manifest {
- 	attributes("Main-Class": "is.ru.tictactoe.PlayGame")
-    } 
+	manifest {
+ 		attributes("Main-Class": "is.ru.tictactoe.PlayGame")
+    	} 
 }
 
 applicationDefaultJvmArgs = ["-Dgreeting.language=en"]
 
 task createDocs {
-    def docs = file("$buildDir/docs")
-    outputs.dir docs
-    doLast {
-        docs.mkdirs()
-        new File(docs, "readme.txt").write("Read me!")
-    }
+	def docs = file("$buildDir/docs")
+	outputs.dir docs
+ 	doLast {
+        	docs.mkdirs()
+       		new File(docs, "readme.txt").write("Read me!")
+    	}
 }
 
 applicationDistribution.from(createDocs) {
-    into "docs"
-}
-
-repositories {
-    // Use 'jcenter' for resolving your dependencies.
- 
-
-    jcenter()
-
-}
-
-dependencies {
-    // The production code uses the SLF4J logging API at compile time
-
-    compile 'org.slf4j:slf4j-api:1.7.5'
-    compile fileTree(dir: 'lib', include: ['*.jar'])
-    compile 'com.google.code.gson:gson:2.3'
-    // selenium
- 
-    // tests
-    testCompile 'junit:junit:4.11'
-
-    // taskrun
-
+	into "docs"
 }
 
 run{
