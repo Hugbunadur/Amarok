@@ -29,6 +29,51 @@ public class PlayGameTest {
 	assertArrayEquals(correctBoard, testBoard);
     }
 
+    @Test
+    public void testCheckForInvalidMoveFull(){
+	String[][] testBoard = new String [3][3];
+	testBoard = PlayGame.initialiazeTheBoard(testBoard);
+	
+
+	for(int i = 0; i < 3; i++){
+	    for(int y = 0; y < 3; y++){
+		testBoard[i][y] = "X";
+	    }
+	}
+	
+	boolean result = false;
+	Point point = new Point(0, 0);
+	for(int i = 0; i < 3; i++){
+	    for(int y = 0; y < 3; y++){
+		point = new Point(i, y);
+		result = PlayGame.checkForInvalidMove(testBoard, point);
+		assertEquals(true, result);
+	    }
+	}
+    }
+
+    @Test
+    public void testCheckForInvalidMoveEmpty(){
+	String[][] testBoard = new String [3][3];
+	testBoard = PlayGame.initialiazeTheBoard(testBoard);
+	for(int i = 0; i < 3; i++){
+	    for(int y = 0; y < 3; y++){
+		testBoard[i][y] = " ";
+	    }
+	}
+	
+	boolean result = false;
+	Point point = new Point(0, 0);
+	for(int i = 0; i < 3; i++){
+	    for(int y = 0; y < 3; y++){
+		point = new Point(i, y);
+		result = PlayGame.checkForInvalidMove(testBoard, point);
+		assertEquals(false, result);
+	    }
+	}
+    }
+
+    @Test
     public void testCheckForInvalidMove(){
 	String[][] testBoard = new String [3][3];
 	testBoard = PlayGame.initialiazeTheBoard(testBoard);
@@ -39,7 +84,7 @@ public class PlayGameTest {
 	testBoard[1][2] = "O";
 	testBoard[2][1] = "O";
 	
-	Point point = new Point(0, 0);
+	Point point = new Point(0, 0); 
 	boolean result = PlayGame.checkForInvalidMove(testBoard, point);
 	assertEquals(true, result);
  
