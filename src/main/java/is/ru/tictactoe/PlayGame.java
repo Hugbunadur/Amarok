@@ -247,8 +247,9 @@ public class PlayGame {
 	return player.nextMove();
     }
 
+
     public static boolean checkWins(String[][] board){ 
-	if(checkHorizontalforX(board) || checkHorizontalforO(board)) return true;
+	if(checkHorizontalforX(board) || checkHorizontalforO(board)|| checkVerticalforX(board) || checkVerticalforO(board) || checkDiagonal(board)|| checkInvDiagonal(board)) return true;
 	return false; 
     }
 
@@ -267,8 +268,7 @@ public class PlayGame {
 	
 	for(int i = 0; i < 3; i++){
 	    if(board[2][i] != "X") h3 = false; 
-	}
-	
+	}	
 	if(h1 || h2 || h3) return true;
 	return false; 
     }
@@ -289,9 +289,76 @@ public class PlayGame {
 	for(int i = 0; i < 3; i++){
 	    if(board[2][i] != "O") h3 = false; 
 	}
-	
 	if(h1 || h2 || h3) return true;
 	return false; 
+    }   
+
+   
+    private static boolean checkVerticalforX(String[][] board){
+	boolean v1 = true;
+	boolean v2 = true;
+	boolean v3 = true;
+	
+	for(int i = 0; i < 3; i++){
+	    if(board[i][0] != "X") v1 = false; 
+	}
+	
+	for(int i = 0; i < 3; i++){
+	    if(board[i][1] != "X") v2 = false; 
+	}
+	
+	for(int i = 0; i < 3; i++){
+	    if(board[i][2] != "X") v3 = false; 
+	}
+	
+	if(v1 || v2 || v3) return true;
+	return false; 
     }
+    
+    private static boolean checkVerticalforO(String[][] board){
+	boolean v1 = true;
+	boolean v2 = true;
+	boolean v3 = true;
+	
+	for(int i = 0; i < 3; i++){
+	    if(board[i][0] != "O") v1 = false; 
+	}
+	
+	for(int i = 0; i < 3; i++){
+	    if(board[i][1] != "O") v2 = false; 
+	}
+	
+	for(int i = 0; i < 3; i++){
+	    if(board[i][2] != "O") v3 = false; 
+	}
+	
+	if(v1 || v2 || v3) return true;
+	return false; 
+    }
+ 
+    private static boolean checkDiagonal(String[][] board){
+	if(board[0][0] == "X" && board[1][1] == "X" && board[2][2] == "X") return true; 
+	else if(board[0][0] == "O" && board[1][1] == "O" && board[2][2] == "O") return true; 
+	return false;
+    }
+
+    private static boolean checkInvDiagonal(String[][] board){
+	if(board[0][2] == "X" && board[1][1] == "X" && board[2][0] == "X") return true; 
+	else if(board[0][2] == "O" && board[1][1] == "O" && board[2][0] == "O") return true; 
+	return false;
+    }
+
+ public static void setVictoryForSpecificPlayer(Player player){
+	player.setWins(player.getWins() + 1);
+	out.println("--------------------------------------------"); 
+	out.println("\t\t~~~Victory~~~");
+	out.println("--------------------------------------------"); 
+	out.println("\t\t" + player.getUsername() + " won!");
+
+	
+	out.println("\tWould you like to play again!?\n");
+	printMenu();
+    }
+
 }
 
