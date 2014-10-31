@@ -7,129 +7,78 @@
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
         
     </head>
-
-
-
-<script>
-
-
- 
+	<script>
         $(document).ready(function rugl(){
 			$("#shit").click(function(){
 			    alert("FUCK");
 			 });
 		}):
 
-		</script>
-
+	</script>
 
     <body>
-    	<a href="#" id="shit">shit</a>
-
-    	
+    	<div class="header"><a href="index.html"><img src="gfx/logo.png" align="left"></a></div>
     	<!-- main container -->
         <div class="container">
 
-			<div class="header">
-	        	Play TICTACTOE
-	        </div>	
+			<h2>Play TicTacToe</h2>
 
 	        <div class="board">
 
 	        	<!-- first row -->
 	        	<div class="square">
-	        		<div class="content" id="a1a" >
-	        			<div class="table">
-	        				<div class="table-cell image">
-	                    		<img class="scale" src="gfx/bg.png" id="changer" onclick="changeImage(this)">
-	            			</div>
-	        			</div>
+	        		<div class="content" id="a1" >
+	                    <img class="scale" src="gfx/x.png">
 	        		</div>
 	        	</div>
-
+				<div class="square">
+	        		<div class="content" id="a2" >
+	                    <img class="scale" src="gfx/x.png">
+	        		</div>
+	        	</div>
 	        	<div class="square">
-	        		<div class="content" id="a2">
-	        			<div class="table">
-	        				<div class="table-cell image">
-	                    		<a href="#" class="shit"><img class="scale" src="gfx/bg.png"/></a>
-	            			</div>
-	        			</div>
+	        		<div class="content" id="a3" >
+	                    <img class="scale" src="gfx/o.png">
 	        		</div>
 	        	</div>
-
-	        	<div class="square">
-	        		<div class="content" id="a3">
-	        			<div class="table">
-	        				<div class="table-cell image">
-	                    		<img class="scale" src="gfx/bg.png">
-	            			</div>
-	        			</div>
-	        		</div>
-	        	</div>
+	        	
 
 				<!-- second row -->
 	        	<div class="square">
-	        		<div class="content" id="b1">
-	        			<div class="table">
-	        				<div class="table-cell image">
-	                    		<img class="scale" src="gfx/x.png">
-	            			</div>
-	        			</div>
+	        		<div class="content" id="b1" >
+	                    <img class="scale" src="gfx/o.png">
 	        		</div>
 	        	</div>
-
-	        	<div class="square">
-	        		<div class="content">
-	        			<div class="table" id="b2">
-	        				<div class="table-cell image">
-	                    		<img class="scale" src="gfx/x.png">
-	            			</div>
-	        			</div>
+				<div class="square">
+	        		<div class="content" id="b2" >
+	                    <img class="scale" src="gfx/o.png">
 	        		</div>
 	        	</div>
-
 	        	<div class="square">
-	        		<div class="content" id="b3">
-	        			<div class="table">
-	        				<div class="table-cell image">
-	                    		<img class="scale" src="gfx/x.png">
-	            			</div>
-	        			</div>
+	        		<div class="content" id="b3" >
+	                    <img class="scale" src="gfx/x.png">
 	        		</div>
 	        	</div>
 
 	        	<!-- third row -->
 	        	<div class="square">
-	        		<div class="content" id="c1">
-	        			<div class="table">
-	        				<div class="table-cell image">
-	                    		<img class="scale" src="gfx/o.png">
-	            			</div>
-	        			</div>
+	        		<div class="content" id="c1" >
+	                    <img class="scale" src="gfx/x.png">
 	        		</div>
 	        	</div>
-
-	        	<div class="square">
-	        		<div class="content" id="c2">
-	        			<div class="table">
-	        				<div class="table-cell image">
-	                    		<img class="scale" src="gfx/o.png">
-	            			</div>
-	        			</div>
+				<div class="square">
+	        		<div class="content" id="c2" >
+	                    <img class="scale" src="gfx/o.png">
 	        		</div>
 	        	</div>
-
 	        	<div class="square">
-	        		<div class="content">
-	        			<div class="table" id="c3">
-	        				<div class="table-cell image">
-	                    		<img class="scale" src="gfx/o.png">
-	            			</div>
-	        			</div>
+	        		<div class="content" id="c3" >
+	                    <img class="scale" src="gfx/x.png">
 	        		</div>
 	        	</div>
 	        </div>
 
+	        <div id="footer">About</div>
 		</div>
     </body>
 </html>        	

@@ -12,7 +12,6 @@
 			    	$(".playertwo").first().show();
 			  	});
 
-
 			  	$("#btn2").click(function(){
 
 			  		if($("#PlayerName2").val().length == 0) {
@@ -26,37 +25,25 @@
 			</script>
     </head>
 
-
     <body>
-    	<!-- main container -->
+    	<div class="header"><a href="index.html"><img src="gfx/logo.png" align="left"></a></div>
         <div class="container">
+	        <h1>TicTacToe</h1>
 
-			<div class="header">
-				<h3>Amorak</h3>
-	        	<h1>TICTACTOE</h1>
-	        	<p>Welcome to our wonderful game.<br>
-	        	Please make a choice below</p>
-	        </div>	
+			<div class="box">
+				<p>Please make a choice to continue</p>
+				<input type="submit" value="PLAYER vs COMPUTER" class="btn" onclick="window.location.href='game.html'"/><br>
 
-
-			<div>
+				<input type="submit" value="COMPUTER vs COMPUTER" class="btn" onclick="window.location.href='game.html'"/><br>
 				
-				<input type="submit" value="Player vs Computer" class="btn" onclick="window.location.href='game.html'"/><br>
-				
-				
-				<input type="submit" value="Computer vs Computer" class="btn" onclick="window.location.href='game.html'"/><br>
-				
-				<input type="submit" value="Player vs Player" class="btn" id="show"/>
+				<input type="submit" value="PLAYER vs PLAYER" class="btn" id="show"/>
 				<div class="playertwo">
-					<input type="text" id="PlayerName1" name="PlayerName1" placeholder="Enter name of second player"/> <br><br>
+					<input type="text" id="PlayerName2" name="PlayerName2" placeholder=" Enter name of second player"/> <br><br>
 					<input type="submit" value="Continue" class="btn" id="btn2"/> 
 				</div>
 	        </div>
 
-			
-			
-
-
+	        <div id="footer">About</div>
 		</div>
     </body>
 </html>        	
