@@ -10,6 +10,11 @@ repositories {
   	jcenter()
 }
 
+
+
+
+
+
 sourceSets {
     	selenium
     	seleniumXvfb
@@ -85,10 +90,26 @@ test {
     	}
 }
 
+
+
+// jar
+def jarDirectory = new File('../AmarokJar') 
+
 jar {
 	manifest {
  		attributes("Main-Class": "is.ru.tictactoe.PlayGame")
     	} 
+}
+task runJarFromAnotherDir {
+    doFirst{
+        if(!jarDirectory.isDirectory()){
+            jarDirectory.mkdirs()
+        }
+    }
+    copy {
+        from "build/libs/"
+        into '../AmarokJar'
+    }   
 }
 
 applicationDefaultJvmArgs = ["-Dgreeting.language=en"]
