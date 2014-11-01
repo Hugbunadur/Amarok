@@ -45,7 +45,7 @@
 	                    url: form.attr('action'),
 	                    data: 'id='+ player1
 	                }).done(function(doneGetName) {
-	                    $('.output').html().attr(doneGetName, 'alert alert-success');
+	                    $('.output').html(doneGetName).attr('class', 'alert alert-success');
 	                    //location.href = "menu.html"
 	                });
 	                /*.fail(function(Failes) {
