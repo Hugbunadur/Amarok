@@ -13,15 +13,27 @@ $(document).ready(function(){
 		$(".playertwo").first().show();
 	});
 
-	$("#btn_continue2").click(function(){
+	$("#btn_playvsplay").click(function(){
 
 	if($("#PlayerName2").val().length == 0) {
-		alert("You must enter name of player 2"); 		
+		$('.output').html('Please Enter Name').attr('class', 'alert alert-danger');		
 	}
 	else{
 		window.location.href = 'game.html';
 	}
 	});
 
+	$("#btn_playvscomp").click(function(){
+
+	
+		window.location.href = 'game.html';
+	
+	});
+
+	$("#btn_compvscomp").click(function(){
+
+		window.location.href = 'game.html';
+	
+	});
 
 });

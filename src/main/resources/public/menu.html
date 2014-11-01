@@ -4,9 +4,11 @@
     	 <meta http-equiv="content-type" content="text/html; charset=utf-8" />
         <title>TicTacToe</title>
         <link rel="stylesheet" href="main.css">
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/bootstrap/3.3.0/css/bootstrap-theme.min.css">
+     
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
 		<script src="script.js"></script>
+		
     </head>
 
     <body>
@@ -16,16 +18,44 @@
 
 			<div class="box">
 				<p>Please make a choice to continue</p>
-				<input type="submit" value="PLAYER vs COMPUTER" class="btn" onclick="window.location.href='game.html'"/><br>
+				<input type="submit" value="PLAYER vs COMPUTER" class="btn" id="btn_playvscomp" /><br>
 
-				<input type="submit" value="COMPUTER vs COMPUTER" class="btn" onclick="window.location.href='game.html'"/><br>
+				<input type="submit" value="COMPUTER vs COMPUTER" class="btn" id="btn_compvscomp" /><br>
 				
 				<input type="submit" value="PLAYER vs PLAYER" class="btn" id="show"/>
 				<div class="playertwo">
+					<form method="post" action="game.html" role="form">
 					<input type="text" id="PlayerName2" name="PlayerName2" placeholder=" Enter name of second player"/> <br><br>
-					<input type="submit" value="Continue" class="btn" id="btn_continue2"/> 
+					<input type="submit" value="Continue" class="btn" id="btn_playvsplay"/> 
+					</form>
 				</div>
 	        </div>
 		</div>
+
+		<!-- <script>
+		/*$(document).ready(function() {
+            var form = $('form');
+            form.submit(function( event ) {
+         
+	                $.ajax({
+	                    type: form.attr('method'),
+	                    url: form.attr('action'),
+	                    data: null
+	                }).done(function(doneGetName) {
+	                    //$('.output').html().attr('class', 'alert alert-success');
+	                    window.location.href = "game.html"
+	                });
+	                /*.fail(function(Failes) {
+	                    $('.output').html('Please Enter Name').attr('class', 'alert alert-danger');
+	                })
+	                event.preventDefault();
+
+            });
+        });*/
+		
+		</script>-->
+
+
+
     </body>
 </html>        	
