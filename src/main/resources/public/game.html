@@ -6,7 +6,57 @@
         <link rel="stylesheet" href="main.css">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/bootstrap/3.3.0/css/bootstrap-theme.min.css">
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-        <script src="script.js"></script>
+        <script>
+
+	$(document).ready(function(){
+		$(function() {
+ 		$('#a1').click(function(){
+   			$("#x1").attr('src',"gfx/o.png");
+		return false;
+		});
+   		$('#a2').click(function(){
+   			$("#x2").attr('src',"gfx/x.png");
+ 		
+   		return false;
+   		});
+   		$('#a3').click(function(){
+   			$("#x3").attr('src',"gfx/o.png");
+		return false;
+		});
+   		$('#b1').click(function(){
+   			$("#x4").attr('src',"gfx/x.png");
+ 		
+   		return false;
+   		});
+   		$('#b2').click(function(){
+   			$("#x5").attr('src',"gfx/o.png");
+		return false;
+		});
+   		$('#b3').click(function(){
+   			$("#x6").attr('src',"gfx/o.png");
+ 		
+   		return false;
+   		});
+   		$('#c1').click(function(){
+   			$("#x7").attr('src',"gfx/x.png");
+		return false;
+		});
+   		$('#c2').click(function(){
+   			$("#x8").attr('src',"gfx/o.png");
+ 		
+   		return false;
+   		});
+   		$('#c3').click(function(){
+   			$("#x9").attr('src',"gfx/x.png");
+ 		
+   		return false;
+   		
+   		});
+   		
+});
+
+	});
+	</script>
     </head>
 
     <body>
@@ -20,52 +70,52 @@
 
 	        	<!-- first row -->
 	        	<div class="square">
-	        		<div class="content" id="a1" >
-	                    <img alt="X" class="scale" src="gfx/x.png" />
+	        		<div class="content">
+	                    <a href="#" id="a1"><img alt="X" class="scale" src="gfx/bg.png" id="x1"/></a>
 	        		</div>
 	        	</div>
 				<div class="square">
-	        		<div class="content" id="a2" >
-	                    <img alt="X" class="scale" src="gfx/x.png" />
+	        		<div class="content">
+	                    <a href="#" id="a2"><img alt="X" class="scale" src="gfx/bg.png" id="x2"/></a>
 	        		</div>
 	        	</div>
 	        	<div class="square">
-	        		<div class="content" id="a3" >
-	                    <img alt="O" class="scale" src="gfx/o.png" />
+	        		<div class="content" >
+	                    <a href="#" id="a3"><img alt="X" class="scale" src="gfx/bg.png" id="x3"/></a>
 	        		</div>
 	        	</div>
 	        	
 				<!-- second row -->
-	        	<div class="square">
-	        		<div class="content" id="b1" >
-	                    <img alt="O" class="scale" src="gfx/o.png" />
+					<div class="square">
+	        		<div class="content">
+	                    <a href="#" id="b1"><img alt="X" class="scale" src="gfx/bg.png" id="x4"/></a>
 	        		</div>
 	        	</div>
 				<div class="square">
-	        		<div class="content" id="b2" >
-	                    <img alt="O" class="scale" src="gfx/o.png" />
+	        		<div class="content">
+	                    <a href="#" id="b2"><img alt="X" class="scale" src="gfx/bg.png" id="x5"/></a>
 	        		</div>
 	        	</div>
 	        	<div class="square">
-	        		<div class="content" id="b3" >
-	                    <img alt="X" class="scale" src="gfx/x.png" />
+	        		<div class="content" >
+	                    <a href="#" id="b3"><img alt="X" class="scale" src="gfx/bg.png" id="x6"/></a>
 	        		</div>
 	        	</div>
 
 	        	<!-- third row -->
 	        	<div class="square">
-	        		<div class="content" id="c1" >
-	                    <img alt="X" class="scale" src="gfx/x.png" />
+	        		<div class="content">
+	                    <a href="#" id="c1"><img alt="X" class="scale" src="gfx/bg.png" id="x7"/></a>
 	        		</div>
 	        	</div>
 				<div class="square">
-	        		<div class="content" id="c2" >
-	                    <img alt="O" class="scale" src="gfx/o.png" />
+	        		<div class="content">
+	                    <a href="#" id="c2"><img alt="X" class="scale" src="gfx/bg.png" id="x8"/></a>
 	        		</div>
 	        	</div>
 	        	<div class="square">
-	        		<div class="content" id="c3" >
-	                    <img alt="X" class="scale" src="gfx/x.png" />
+	        		<div class="content" >
+	                    <a href="#" id="c3"><img alt="X" class="scale" src="gfx/bg.png" id="x9"/></a>
 	        		</div>
 	        	</div>
 	        </div>
