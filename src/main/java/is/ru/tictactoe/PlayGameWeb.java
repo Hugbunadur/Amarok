@@ -32,6 +32,21 @@ public class PlayGameWeb implements SparkApplication {
 		    
 		    }
         });
+	
+	post(new Route("/showname"){
+
+		@Override
+		public Object handle(Request request, Response response){
+                   
+		      return humplayerA.getUsername();
+
+		}
+
+	    }
+
+
+
+
 
         /*post(new Route("Player vs Computer"){
         	@Override
