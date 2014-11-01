@@ -37,8 +37,8 @@ public class PlayGameWeb implements SparkApplication {
 
 		@Override
 		public Object handle(Request request, Response response){
-		    String tmp = humplayer.getUsername();
-		    if(tmp.length() == 0) {
+		    String tmp = humplayerA.getUsername();
+		    if(tmp.isEmpty()) {
 			return "the length is 0";}
 		    else
 		    return humplayerA.getUsername();
