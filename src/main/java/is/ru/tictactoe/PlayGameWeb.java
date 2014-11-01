@@ -25,7 +25,7 @@ public class PlayGameWeb implements SparkApplication {
 	post(new Route("/username"){
                 @Override
 		    public Object handle(Request request, Response response){
-		    String user = request.queryParams("player1");
+		    String user = request.queryParams("id");
 		    if(user.length() == 0){
 			humplayerA.setUsername(user);
 			response.redirect("menu.html");			
