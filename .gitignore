@@ -1,6 +1,7 @@
 *.class
 # Mobile Tools for Java (J2ME)
 .mtj.tmp/
+.gradle
 
 # Package Files #
 *.war
@@ -10,6 +11,7 @@
 .DS_Store
 #ignore gradle build directory
 build/
+gradle-app.setting
 
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
