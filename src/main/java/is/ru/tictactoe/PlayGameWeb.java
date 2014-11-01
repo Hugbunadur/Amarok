@@ -26,15 +26,17 @@ public class PlayGameWeb implements SparkApplication {
                 @Override
 		    public Object handle(Request request, Response response){
 		    String user = request.queryParams("id");
-		    if(user.length() != 0){
+		    return user;
+		    /*if(user.length() != 0){
 			humplayerA.setUsername(user);
 			response.redirect("menu.html");			
 		    }
 		    else  response.redirect("index.html");
 		    //response.status(200);
-		   
+		    */
 		    return response;
-                }
+		    
+		    }
         });
 
         /*post(new Route("Player vs Computer"){
