@@ -21,6 +21,8 @@ dependencies {
 
         // gson
         compile 'com.google.code.gson:gson:2.3'
+	// Adding Spark dependency
+    	compile 'com.sparkjava:spark-core:1.1.1'
 
         // selenium
         seleniumCompile 'junit:junit:4.11'
