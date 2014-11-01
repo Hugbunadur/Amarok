@@ -37,14 +37,14 @@ public class PlayGameWeb implements SparkApplication {
 
 		@Override
 		public Object handle(Request request, Response response){
-		    /*String MYName = humplayerA.getUsername();
+		    String MYName = humplayerA.getUsername();
 		    if(MYName.isEmpty()) {
 			MYName = "the length is 0";
-			return MYName;}
-			else*/
-			//MYName =  humplayerA.getUsername();
-		    String MYName = "blaaaaa"; 
-    return MYName;
+			
+		    else
+			MYName =  humplayerA.getUsername();
+		    
+		    return MYName;
 		}
 
 	    });
