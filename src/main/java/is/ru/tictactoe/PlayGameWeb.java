@@ -39,13 +39,14 @@ public class PlayGameWeb implements SparkApplication {
 		public Object handle(Request request, Response response){
 		    String MYName = humplayerA.getUsername();
 		    if(MYName.isEmpty()) {
-			MYName = "the length is 0";
+			MYName = "the length is 0";}
 			
 		    else
 			MYName =  humplayerA.getUsername();
 		    
 		    return MYName;
 		}
+	   
 
 	    });
 
