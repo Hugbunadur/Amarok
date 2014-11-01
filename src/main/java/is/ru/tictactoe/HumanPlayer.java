@@ -1,14 +1,18 @@
 package is.ru.tictactoe;
+import java.util.*;
 
 public class HumanPlayer extends Player {
+
+    // private Scanner reader = new Scanner(System.in); 
+    private static Scanner scanner = new Scanner(System.in);
     
     @Override 
     public Point nextMove(){
 
 	String coordinate;
-	out.print("Enter the coordinate: ");
-	coordinate = in.readString();
-	out.println();
+	System.out.print("Enter the coordinate: ");
+	coordinate = scanner.next(); 
+	System.out.println();
 
 	Point ptn;
 	switch(coordinate){
