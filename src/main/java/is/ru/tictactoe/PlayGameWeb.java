@@ -27,8 +27,8 @@ public class PlayGameWeb implements SparkApplication {
 		    public Object handle(Request request, Response response){
 		    String user = request.queryParams("id");
 			humplayerA.setUsername(user);
-			response.status(200);
-			return response;
+			//response.status(200);
+			return humplayerA.getUserName();
 		    
 		    }
         });
@@ -37,12 +37,13 @@ public class PlayGameWeb implements SparkApplication {
 
 		@Override
 		public Object handle(Request request, Response response){
-		    String tmp = humplayerA.getUsername();
-		    if(tmp.isEmpty()) {
-			return "the length is 0";}
+		    String MYName = humplayerA.getUsername();
+		    if(MYName.isEmpty()) {
+			MYName = "the length is 0";
+			return MYName;}
 		    else
-		    return humplayerA.getUsername();
-
+			//MYName =  humplayerA.getUsername();
+		    return MYName;
 		}
 
 	    });
