@@ -17,11 +17,21 @@ public class PlayGameWeb implements SparkApplication {
 
     public void init(){
     	final PlayGame playgame = new PlayGame();
-    	final Player player = new Player(); 
-    	final HumanPlayer humplayer = new HumanPlayer();
+    	final HumanPlayer humplayerA = new HumanPlayer();
+	final HumanPlayer humplayerB = new HumanPlayer();
+    
     	final ComputerPlayer compplayer = new ComputerPlayer();
 
-        post(new Route("Player vs Computer"){
+	post(new Route("/username"){
+                @Override
+		    public Object handle(Request request, Response response){
+		    humplayerA.setUsername(request.queryParams("player1"));
+		    response.status(200);
+		    return response;
+                }
+        });
+
+        /*post(new Route("Player vs Computer"){
         	@Override
         	public Object handle(Request request, Response response){
         		humplayer.setUsername(request.queryParams("HumanPlayer"));
@@ -41,7 +51,7 @@ public class PlayGameWeb implements SparkApplication {
         	}
 
         });
-
+	*/
  
     }
 }
