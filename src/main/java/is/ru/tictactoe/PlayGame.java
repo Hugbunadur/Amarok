@@ -1,17 +1,13 @@
 package is.ru.tictactoe;
-
+import java.util.Scanner;
 import java.util.Arrays;
 
-import edu.princeton.cs.introcs.In;
-import edu.princeton.cs.introcs.Out;
 
 public class PlayGame {
 
     private final static int boardSize = 9;
-    //from algs4
-    private static In in = new In();     
-    private static Out out = new Out();
-    
+    private static Scanner scanner = new Scanner(System.in);
+
 
     public static void main(String[] args){
 
@@ -35,7 +31,7 @@ public class PlayGame {
 	do{ 
 	    choice = selectGame();
 	    if(choice.equals("1")|| choice.equals("2") ||choice.equals("3"))
-	    out.print(referenceBoardToString());
+	    System.out.print(referenceBoardToString());
 	    if(choice.equals("0"))
 	    printInfo();
 	        
@@ -43,8 +39,8 @@ public class PlayGame {
 	    else if(choice.equals("1")){
 		if(tmp == 1){
 		    tmp++;
-		    out.print("Player 2 Username: "); username = in.readString();
-		    out.println();
+		    System.out.print("Player 2 Username: "); username = scanner.next();
+		    System.out.println();
 		    human_B.setUsername(username);
 		}
 		play(human_A, human_B);
@@ -61,22 +57,22 @@ public class PlayGame {
     //basic functions
     public static String getUsernameForPlayer1(HumanPlayer human_A){
 	String username;
-	out.println();
-	out.print("Username: "); username = in.readString();
-	out.println();
+	System.out.println();
+	System.out.print("Username: "); username = scanner.next();
+	System.out.println();
 	human_A.setUsername(username);
 	return username; 
     }
 
     public static String selectGame(){
-	out.print("Your choice: "); String choice = in.readString();
-	out.println();
+	System.out.print("Your choice: "); String choice = scanner.next();
+	System.out.println();
 
 	if(!Arrays.asList("1", "2", "3", "4",  "0").contains(choice)){
 	    while(!Arrays.asList("1", "2", "3", "4", "0").contains(choice)){
-		out.println("Illegal choice, please try again.");
-		out.print("Your choice: "); choice = in.readString();
-		out.println();
+		System.out.println("Illegal choice, please try again.");
+		System.out.print("Your choice: "); choice = scanner.next();
+		System.out.println();
 	    }
 	}
 	return choice;
@@ -84,53 +80,53 @@ public class PlayGame {
     
     //printing functions
     public static void printInfo(){
-	out.println("---------------------------------------------------------------------"); 
-	out.println("\t\t\tProduction of AMAROK");
-	out.println("---------------------------------------------------------------------"); 
-	out.println("TicTacToe is a widely known Tic Tac Toe game for Linux and Unix OS.");
-	out.println("In this game, player can play against another player, compete against");
-	out.println("a computer and finally to spectate a game computer vs computer.");
-	out.println("If you dont know how to play Tic Tac Toe, see the follwoing link ");
-	out.println("for more information http://www.cs.jhu.edu/~jorgev/cs106/ttt.pdf");
-	out.println("---------------------------------------------------------------------"); 
-	out.println(); 
+	System.out.println("---------------------------------------------------------------------"); 
+	System.out.println("\t\t\tProduction of AMAROK");
+	System.out.println("---------------------------------------------------------------------"); 
+	System.out.println("TicTacToe is a widely known Tic Tac Toe game for Linux and Unix OS.");
+	System.out.println("In this game, player can play against another player, compete against");
+	System.out.println("a computer and finally to spectate a game computer vs computer.");
+	System.out.println("If you dont know how to play Tic Tac Toe, see the follwoing link ");
+	System.out.println("for more information http://www.cs.jhu.edu/~jorgev/cs106/ttt.pdf");
+	System.out.println("---------------------------------------------------------------------"); 
+	System.out.println(); 
     }
 
     //the tilte was generated using terminal: figlet TicTacToe
     public static void printWelcome(){
-	out.println(" _____ _     _____         _____"); 
-	out.println("|_   _(_) __|_   _|_ _  __|_   _|__   ___"); 
-	out.println("  | | | |/ __|| |/ _` |/ __|| |/ _ \\ / _ \\"); 
-	out.println("  | | | | (__ | | (_| | (__ | | (_) |  __/");
-	out.println("  |_| |_|\\___||_|\\__,_|\\___||_|\\___/ \\___|");
-	out.println("\n--------------------------------------------"); 
-	out.println("\t\tVersion 0.1");
-	out.println("--------------------------------------------"); 
+	System.out.println(" _____ _     _____         _____"); 
+	System.out.println("|_   _(_) __|_   _|_ _  __|_   _|__   ___"); 
+	System.out.println("  | | | |/ __|| |/ _` |/ __|| |/ _ \\ / _ \\"); 
+	System.out.println("  | | | | (__ | | (_| | (__ | | (_) |  __/");
+	System.out.println("  |_| |_|\\___||_|\\__,_|\\___||_|\\___/ \\___|");
+	System.out.println("\n--------------------------------------------"); 
+	System.out.println("\t\tVersion 0.1");
+	System.out.println("--------------------------------------------"); 
     }
 
     public static void printMenu(){
-	out.println("--------------------------------------------"); 
-	out.println("\t\t MAIN MENU ");
-	out.println("--------------------------------------------\n"); 
-	out.println("[ Game mode ]");
-	out.println("(1) Player vs Player ");
-	out.println("(2) Player vs Computer ");
-	out.println("(3) Computer vs Computer ");
-	out.println();
-	out.println("(0) Info");
-	out.println("(4) Quit");
-	out.println("\n");
+	System.out.println("--------------------------------------------"); 
+	System.out.println("\t\t MAIN MENU ");
+	System.out.println("--------------------------------------------\n"); 
+	System.out.println("[ Game mode ]");
+	System.out.println("(1) Player vs Player ");
+	System.out.println("(2) Player vs Computer ");
+	System.out.println("(3) Computer vs Computer ");
+	System.out.println();
+	System.out.println("(0) Info");
+	System.out.println("(4) Quit");
+	System.out.println("\n");
     }
 
     public static void printResults(Player humanA, Player humanB, Player compA, Player compB){
-	out.println("--------------------------------------------");
-	out.println("\t\tResults");
-	out.println("--------------------------------------------");
-	if(humanA.getWins() > 0 || humanA.getDraw() > 0) out.println("    " + humanA.getUsername() + " won: " + humanA.getWins() + " and tied: " + humanA.getDraw() +" times"); 
-	if(humanB.getWins() > 0 || humanB.getDraw() > 0) out.println("    " + humanB.getUsername() + " won: " + humanB.getWins() + " and tied: " + humanB.getDraw() +" times"); 
-	if(compA.getWins() > 0 || compA.getDraw() > 0) out.println("    " + compA.getUsername() + " won: " + compA.getWins() + " and tied: " + compA.getDraw() +" times"); 
-	if(compB.getWins() > 0 || compB.getDraw() > 0) out.println("    " + compB.getUsername() + " won: " + compB.getWins() + " and tied: " + compB.getDraw() +" times"); 
-	out.println("--------------------------------------------\n");
+	System.out.println("--------------------------------------------");
+	System.out.println("\t\tResults");
+	System.out.println("--------------------------------------------");
+	if(humanA.getWins() > 0 || humanA.getDraw() > 0 || humanA.getLost() > 0) System.out.println("    " + humanA.getUsername() + " won: " + humanA.getWins() + " loss: " + humanA.getLost() + " and tied: " + humanA.getDraw() +" times"); 
+	if(humanB.getWins() > 0 || humanB.getDraw() > 0 || humanB.getLost() > 0) System.out.println("    " + humanB.getUsername() + " won: " + humanB.getWins() + " loss: " + humanB.getLost() + " and tied: " + humanB.getDraw() +" times"); 
+	if(compA.getWins() > 0 || compA.getDraw() > 0 || compA.getLost() > 0) System.out.println("    " + compA.getUsername() + " won: " + compA.getWins() + " loss: " + compA.getLost() + " and tied: " + compA.getDraw() +" times"); 
+	if(compB.getWins() > 0 || compB.getDraw() > 0|| compB.getLost() > 0) System.out.println("    " + compB.getUsername() + " won: " + compB.getWins() + " loss: " + compB.getLost() + " and tied: " + compB.getDraw() +" times"); 
+	System.out.println("--------------------------------------------\n");
     }
 
     public static String referenceBoardToString(){
@@ -174,16 +170,18 @@ public class PlayGame {
 	boolean win = false;
 	int finishGame = 0;
 	String symbol = "X";
-	Player player;
+	Player player, loser;
 	String[][] board = new String [3][3];
 	board = initialiazeTheBoard(board);
 	while(!win){
 	    if(finishGame % 2 != 0) { //player2 makes a move
 		player = player2;
+		loser = player1;
 		symbol = "O";
 	    }else { // player 1 makes a move
 		symbol = "X";
-		player = player1; 
+		player = player1;
+		loser = player2; 
 	    }
 	    
 	    point = getApointFromThePlayer(player);
@@ -195,7 +193,7 @@ public class PlayGame {
 	            
 	    win = checkWins(board);
 	    if(win){
-		setVictoryForSpecificPlayer(player);
+		setVictoryForSpecificPlayer(player, player2);
 		return;
 	    }
 	        
@@ -215,26 +213,26 @@ public class PlayGame {
 
 	public static Point makeAvalidMove(String[][] board, Point point, Player player){
 	while(board[point.getX()][point.getY()] != " ") {
-	    out.print("Invalid coordinate! Try again ");
-	    out.println(); 
+	    System.out.print("Invalid coordinate! Try again ");
+	    System.out.println(); 
 	    point = player.nextMove();
 	}
 	return point;
     }
 
     public static String[][] SetAsymbolOnTheBoard(String[][] board, Point point, String symbol){
-	out.println();
+	System.out.println();
 	board[point.getX()][point.getY()] = symbol;
-	out.print(drawUpdatedBoard(board));
+	System.out.print(drawUpdatedBoard(board));
 	return board;
     }
 
     public static boolean checkDraw(int finishGame, Player player1, Player player2){
 	if(finishGame >= boardSize){
-	    out.println("--------------------------------------------"); 
-	    out.println("\t\t~~~DRAW~~~");
-	    out.println("--------------------------------------------");
-	    out.println("\tWould you like to play again!?\n");
+	    System.out.println("--------------------------------------------"); 
+	    System.out.println("\t\t~~~DRAW~~~");
+	    System.out.println("--------------------------------------------");
+	    System.out.println("\tWould you like to play again!?\n");
 	    player1.setDraw(player1.getDraw() + 1);
 	    player2.setDraw(player2.getDraw() + 1); 
 	    return true;
@@ -243,7 +241,7 @@ public class PlayGame {
 	}
 
 	public static Point getApointFromThePlayer(Player player){
-	out.println(player.getUsername()+ "'s " + "time to play "); 
+	System.out.println(player.getUsername()+ "'s " + "time to play "); 
 	return player.nextMove();
     }
 
@@ -348,15 +346,16 @@ public class PlayGame {
 	return false;
     }
 
- public static void setVictoryForSpecificPlayer(Player player){
+ public static void setVictoryForSpecificPlayer(Player player, Player loser){
 	player.setWins(player.getWins() + 1);
-	out.println("--------------------------------------------"); 
-	out.println("\t\t~~~Victory~~~");
-	out.println("--------------------------------------------"); 
-	out.println("\t\t" + player.getUsername() + " won!");
+	loser.setLost(loser.getLost() + 1);
+	System.out.println("--------------------------------------------"); 
+	System.out.println("\t\t~~~Victory~~~");
+	System.out.println("--------------------------------------------"); 
+	System.out.println("\t\t" + player.getUsername() + " won!");
 
 	
-	out.println("\tWould you like to play again!?\n");
+	System.out.println("\tWould you like to play again!?\n");
 	printMenu();
     }
 

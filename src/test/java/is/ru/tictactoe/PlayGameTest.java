@@ -139,24 +139,36 @@ public class PlayGameTest {
 	assertEquals(point.getX(), 2);
 	assertEquals(point.getY(), 2);
 
+	arr = PlayGame.initialiazeTheBoard(arr);
+	arr[0][1] = "O";
+	arr[0][2] = "X";
+	arr[1][0] = "X";
+	arr[1][1] = "O";
+	arr[1][2] = "X";
+	arr[2][0] = "O";
+	arr[2][1] = "X";
+	arr[2][2] = "X";
+	point = new Point(1,2);
+	point = PlayGame.makeAvalidMove(arr, point, comp_player);
+	assertEquals(point.getX(), 0);
+	assertEquals(point.getY(), 0);
+
 	//using same algorithm as above, test 50 different cases...
-	int tmp1 = 0;
-	int tmp2 = 0;
+	
 	for(int i = 0; i < 50; i++){
 	    int a = rand.nextInt(3);
 	    int b = rand.nextInt(3);
-	    arr[a][b] = " "; //make a single point available in the tic-tac-toe
+	    arr[a][b] = "j"; //make a single point available in the tic-tac-toe
 	    for(int j = 0; j < 3; j++){
 		for(int k = 0; k < 3; k++){
 		    if(!arr[a][b].equals(arr[j][k])) {
 			arr[j][k] = "X";
-			tmp1 = j;
-			tmp2 = k; 
 		    }
 		}
 	    }
 
-	    point = new Point(tmp1, tmp2);
+	    point = new Point(1, 1);
+	    arr[a][b] = " ";
 	    point = PlayGame.makeAvalidMove(arr, point, comp_player);
 
 	    assertEquals(point.getX(), a);
