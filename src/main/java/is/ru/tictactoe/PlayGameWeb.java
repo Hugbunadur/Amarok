@@ -34,7 +34,7 @@ public class PlayGameWeb implements SparkApplication {
 		    else  response.redirect("index.html");
 		    //response.status(200);
 		    */
-		    return response;
+		    // return response;
 		    
 		    }
         });
