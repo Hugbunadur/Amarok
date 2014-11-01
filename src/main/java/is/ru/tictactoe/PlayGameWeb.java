@@ -28,7 +28,7 @@ public class PlayGameWeb implements SparkApplication {
 		    String user = request.queryParams("id");
 			humplayerA.setUsername(user);
 			//response.status(200);
-			return humplayerA.getUserName();
+			return humplayerA.getUsername();
 		    
 		    }
         });
