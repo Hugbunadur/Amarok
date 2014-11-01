@@ -43,7 +43,8 @@ public class PlayGameWeb implements SparkApplication {
 			return MYName;}
 			else*/
 			//MYName =  humplayerA.getUsername();
-		    return MYName = "blaaa";
+		    String MYName = "blaaaaa"; 
+    return MYName;
 		}
 
 	    });
