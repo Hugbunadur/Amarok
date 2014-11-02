@@ -75,7 +75,7 @@
 		   
 		            </div>
 		  <form method="post" action="/results" role="tester">
-                      <input type="submit" value="Results" class="btn" /><br>
+                      <input type="submit" value="Results" class="btn" id="tmp" /><br>
                       </form>		   
 
        <div id="output"></div>
@@ -85,7 +85,7 @@
 	<script>
 	  $(document).ready(function() {
 	  alert("fyrir");
-	   var tester = $('tester');
+	   var tester = $('#tmp');
           tester.submit(function( event ) {
 	  alert("eftir");
                           $.ajax({
