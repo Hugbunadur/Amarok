@@ -17,7 +17,7 @@
 			<div class="box">				
 	        	<p>Welcome to our wonderful game!<br>
 	        	Please enter your player name to continue</p>
-		        <form method="post" action="/username" role="form">
+		        <form method="post" action="/username" role="form4">
 		        	<input type="text" id="player1" name="player1" placeholder=" Player name"/> <br><br>
 					<input type="submit" value="Continue" /> <br/><br/><br/>
 				</form>
@@ -28,11 +28,8 @@
 
 		<script>
 		$(document).ready(function() {
-            var form = $('form');
+            var form = $('form4');
             form.submit(function( event ) {
-                
-
-
 
                 var player1 = $("#player1").val();
                 if($("#player1").val().length == 0) {
