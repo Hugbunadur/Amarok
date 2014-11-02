@@ -37,33 +37,45 @@ public class PlayGameWeb implements SparkApplication {
         	@Override
         	public Object handle(Request request, Response response){
 
-            String resultSet = "";
-        	Point point;
-            Player player;
-            boolean win = false;
-            int finishGame = 0;
-            String[][] board = new String [3][3];
-            board = PlayGame.initialiazeTheBoard(board);
-            while(!win){
-                if(finishGame % 2 != 0) { //player2 makes a move
-                    player = compplayerB;
-            }else { // player 1 makes a move
-                player = compplayerA;
+    Point point;
+    boolean win = false;
+    int finishGame = 0;
+    String symbol = "X";
+    Player player;
+    String[][] board = new String [3][3];
+    board = PlayGame.initialiazeTheBoard(board);
+    while(!win){
+        if(finishGame % 2 != 0) { //player2 makes a move
+            player = compplayerB;
+            loser = compplayerA;
+            symbol = "O";
+        }else { // player 1 makes a move
+            symbol = "X";
+            player = compplayerA;
+            loser = compplayerB; 
         }
         
         point = PlayGame.getApointFromThePlayer(player);
         if(PlayGame.checkForInvalidMove(board, point)){
-            point = makeAvalidMove(board, point, player); 
+            point = PlayGame.makeAvalidMove(board, point, player); 
         }
-
         board = PlayGame.SetAsymbolOnTheBoard(board, point, symbol);
         finishGame++; //player1 has made a move
-                
-        win = PlayGame.checkWins(board);
-        //TODO: record victory!
         resultSet += point.getX();
         resultSet += point.getY();
-        resultSet += ",";      
+        resultSet += ",";        
+        win = PlayGame.checkWins(board);
+        if(win){
+        PlayGame.setVictoryForSpecificPlayer(player, player2);
+            return resultSet;
+        }
+            
+        // check if draw
+        if(checkDraw(finishGame, player1, player2)){
+            return resultSet;
+        }
+
+
     }
 
                 return resultSet;
