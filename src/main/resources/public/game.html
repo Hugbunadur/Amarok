@@ -8,55 +8,7 @@
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
         <script>
 
-	$(document).ready(function(){
-		$(function() {
- 		$('#a1').click(function(){
-   			$("#x1").attr('src',"gfx/o.png");
-		return false;
-		});
-   		$('#a2').click(function(){
-   			$("#x2").attr('src',"gfx/x.png");
- 		
-   		return false;
-   		});
-   		$('#a3').click(function(){
-   			$("#x3").attr('src',"gfx/o.png");
-		return false;
-		});
-   		$('#b1').click(function(){
-   			$("#x4").attr('src',"gfx/x.png");
- 		
-   		return false;
-   		});
-   		$('#b2').click(function(){
-   			$("#x5").attr('src',"gfx/o.png");
-		return false;
-		});
-   		$('#b3').click(function(){
-   			$("#x6").attr('src',"gfx/o.png");
- 		
-   		return false;
-   		});
-   		$('#c1').click(function(){
-   			$("#x7").attr('src',"gfx/x.png");
-		return false;
-		});
-   		$('#c2').click(function(){
-   			$("#x8").attr('src',"gfx/o.png");
- 		
-   		return false;
-   		});
-   		$('#c3').click(function(){
-   			$("#x9").attr('src',"gfx/x.png");
- 		
-   		return false;
-   		
-   		});
-   		
-});
-
-	});
-	</script>
+</script>
     </head>
 
     <body>
@@ -71,54 +23,122 @@
 	        	<!-- first row -->
 	        	<div class="square">
 	        		<div class="content">
-	                    <a href="#" id="a1"><img alt="X" class="scale" src="gfx/bg.png" id="x1"/></a>
+	                    <a href="#" id="a1"><img alt="X" class="scale" src="gfx/bg.png" id="00"/></a>
 	        		</div>
 	        	</div>
 				<div class="square">
 	        		<div class="content">
-	                    <a href="#" id="a2"><img alt="X" class="scale" src="gfx/bg.png" id="x2"/></a>
+	                    <a href="#" id="a2"><img alt="X" class="scale" src="gfx/bg.png" id="01"/></a>
 	        		</div>
 	        	</div>
 	        	<div class="square">
 	        		<div class="content" >
-	                    <a href="#" id="a3"><img alt="X" class="scale" src="gfx/bg.png" id="x3"/></a>
+	                    <a href="#" id="a3"><img alt="X" class="scale" src="gfx/bg.png" id="02"/></a>
 	        		</div>
 	        	</div>
 	        	
 				<!-- second row -->
 					<div class="square">
 	        		<div class="content">
-	                    <a href="#" id="b1"><img alt="X" class="scale" src="gfx/bg.png" id="x4"/></a>
+	                    <a href="#" id="b1"><img alt="X" class="scale" src="gfx/bg.png" id="10"/></a>
 	        		</div>
 	        	</div>
 				<div class="square">
 	        		<div class="content">
-	                    <a href="#" id="b2"><img alt="X" class="scale" src="gfx/bg.png" id="x5"/></a>
+	                    <a href="#" id="b2"><img alt="X" class="scale" src="gfx/bg.png" id="11"/></a>
 	        		</div>
 	        	</div>
 	        	<div class="square">
 	        		<div class="content" >
-	                    <a href="#" id="b3"><img alt="X" class="scale" src="gfx/bg.png" id="x6"/></a>
+	                    <a href="#" id="b3"><img alt="X" class="scale" src="gfx/bg.png" id="12"/></a>
 	        		</div>
 	        	</div>
 
 	        	<!-- third row -->
 	        	<div class="square">
 	        		<div class="content">
-	                    <a href="#" id="c1"><img alt="X" class="scale" src="gfx/bg.png" id="x7"/></a>
+	                    <a href="#" id="c1"><img alt="X" class="scale" src="gfx/bg.png" id="20"/></a>
 	        		</div>
 	        	</div>
 				<div class="square">
 	        		<div class="content">
-	                    <a href="#" id="c2"><img alt="X" class="scale" src="gfx/bg.png" id="x8"/></a>
+	                    <a href="#" id="c2"><img alt="X" class="scale" src="gfx/bg.png" id="21"/></a>
 	        		</div>
 	        	</div>
 	        	<div class="square">
 	        		<div class="content" >
-	                    <a href="#" id="c3"><img alt="X" class="scale" src="gfx/bg.png" id="x9"/></a>
+	                    <a href="#" id="c3"><img alt="X" class="scale" src="gfx/bg.png" id="22"/></a>
 	        		</div>
 	        	</div>
+	        	<form method="post" action="/computervscomputer" role="form">
+				<input type="submit" value="Start" class="btn" id="btn_compvscomp" /><br>
+				</form>
 	        </div>
+	        <div id="output"></div>
+		<div id="output2"></div>
 		</div>
+
+		<script>
+		$(document).ready(function() {
+		
+		var form = $('form');
+		form.submit(function( event ) {
+         
+	                $.ajax({
+	                    type: form.attr('method'),
+	                    url: form.attr('action'),
+	                    data: null
+	                }).done(function(resultSet) {
+	   
+                $('#output').html(resultSet).attr('class', 'alert alert-success');
+	        
+		var tmp = "#";
+		var arr2 = ["00", "01", "02", "10", "11", "12", "20", "21", "22"];
+		for (var i = 0; i < 9; i++){
+                        var x = arr2[i];
+                        $(tmp.concat(x)).attr('src',"gfx/bg.png");
+				    }
+
+
+		          var arr = resultSet.split(',');
+		           
+		           
+		           
+		          for(var i = 0; i < arr.length; i++){
+				   if(i % 2 === 0){
+				  
+				    var x = arr[i];
+				
+				  // $(tmp.concat(x)).fadeOut(function() {
+			          //     $(this).attr('src',"gfx/x.png").fadeIn();
+				  //  });
+
+
+				    $(tmp.concat(x)).attr('src',"gfx/x.png");
+
+				   }
+				   else{
+
+			          var y = arr[i];
+				    $(tmp.concat(y)).attr('src',"gfx/o.png");
+					     //$(tmp.concat(y)).fadeOut(function() {
+					     //$(this).attr('src',"gfx/o.png").fadeIn();
+					     //});
+				   }
+
+			
+			}
+
+
+					     
+	                }).fail(function(Failes) {
+	                    $('#output').html('FAILED').attr('class', 'alert alert-danger');
+	                });
+	               event.preventDefault();
+
+		   });
+		});
+		
+		</script>
     </body>
 </html>        	

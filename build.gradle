@@ -40,7 +40,7 @@ dependencies {
 
 
 
-mainClassName = "is.ru.tictactoe.PlayGame"
+mainClassName = "is.ru.tictactoe.PlayGameWeb"
 
 task selenium(type: Test, dependsOn: installApp) {
      testClassesDir = sourceSets.selenium.output.classesDir
@@ -160,7 +160,7 @@ task messageTask(type: com.github.blazsolar.gradle.hipchat.tasks.SendMessageTask
      userName = "GradleBuilder"
      color = "red"
 }
-/*
+
 release {
 	failOnCommitNeeded = false
 	failOnUpdateNeeded = false
@@ -169,4 +169,3 @@ release {
 	newVersionCommitMessage = 'NEW VERSION'
 
 }
-*/
