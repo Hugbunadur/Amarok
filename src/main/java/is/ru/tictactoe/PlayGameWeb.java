@@ -36,7 +36,7 @@ public class PlayGameWeb implements SparkApplication {
 	    post(new Route("/computervscomputer"){
         	@Override
         	public Object handle(Request request, Response response){
-    Strng resultSet = ""; 
+    String resultSet = ""; 
     Point point;
     boolean win = false;
     int finishGame = 0;
@@ -71,7 +71,7 @@ public class PlayGameWeb implements SparkApplication {
         }
             
         // check if draw
-        if(checkDraw(finishGame, compplayerA, compplayerB)){
+        if(PlayGame.checkDraw(finishGame, compplayerA, compplayerB)){
             return resultSet;
         }
 
