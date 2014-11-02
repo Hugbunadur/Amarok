@@ -18,7 +18,7 @@
 	      <div class="box">
 		    <p>Welcome to our wonderful game!<br>
 		            Please enter your player name to continue</p>
-		                <form method="post" action="/username" role="formTest">
+		                <form method="post" action="/username" role="form">
 				        <input type="text" id="player1" name="player1" placeholder=" Player name"/> <br><br>
 					      <input type="submit" value="Continue" /> <br/><br/><br/>
 					            </form>
@@ -27,7 +27,7 @@
 
 	        </div>
 
-	<!--<script>
+	<script>
 	    $(document).ready(function() {
             var form = $('form');
             form.submit(function( event ) {
@@ -44,16 +44,14 @@
 	                          data: 'id='+ player1
 	                      }).done(function(doneGetName) {
 	                         $('.output').html(doneGetName).attr('class', 'alert alert-success');
-	                         location.href = "menu.html"
+	                         //location.href = "menu.html"
 	                      });
-	                      /*.fail(function(Failes) {
-	                          $('.output').html('Please Enter Name').attr('class', 'alert alert-danger');
-	                      })*/
+	                   
           }
 	                      event.preventDefault();
             });
         });
 	      
-	      </script>-->
+	      </script>
     </body>
 </html>
