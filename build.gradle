@@ -6,7 +6,7 @@ plugins {
 apply plugin: 'java'
 apply plugin: 'application'
 apply plugin: 'jacoco'
-apply from: 'http://tellurianring.com/projects/gradle-plugins/gradle-release/apply.groovy'
+//apply from: 'http://tellurianring.com/projects/gradle-plugins/gradle-release/apply.groovy'
 
 repositories {
   	     jcenter()
@@ -160,7 +160,7 @@ task messageTask(type: com.github.blazsolar.gradle.hipchat.tasks.SendMessageTask
      userName = "GradleBuilder"
      color = "red"
 }
-
+/*
 release {
 	failOnCommitNeeded = false
 	failOnUpdateNeeded = false
@@ -169,4 +169,4 @@ release {
 	newVersionCommitMessage = 'NEW VERSION'
 	tagPrefix = 'TicTacToe'
 }
-
+*/
