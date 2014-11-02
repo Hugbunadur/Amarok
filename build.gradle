@@ -56,7 +56,7 @@ task selenium(type: Test, dependsOn: installApp) {
                 		       'build/install/tictactoe/bin/tictactoe &'.execute()
                 		       break
 					case 'windows':
-                			'build\\install\\tictactoe\\bin\\tictactoe.bat'.execute()
+                			'build\\install\\Amarok\\bin\\Amarok.bat'.execute()
 						 break
         }
     }
@@ -158,6 +158,9 @@ task messageTask(type: com.github.blazsolar.gradle.hipchat.tasks.SendMessageTask
      message = "The project was successfully built!"
      userName = "GradleBuilder"
      color = "red"
+}
+task wrapper(type: Wrapper) {
+    gradleVersion = '2.1'
 }
 
 //release {

@@ -1,5 +1,5 @@
 #!/bin/bash
-
-cp ~/Amarok/build/libs/Amarok.jar ~/Amarok/tmp/Amarok.jar
-
-
+mkdir -p "$HOME/Buildfiles"
+cp ~/Amarok/build/libs/* ~/Buildfiles
+cp ~/Amarok/build/install/Amarok/bin/* ~/Buildfiles
+ 
