@@ -27,11 +27,32 @@ public class PlayGameWeb implements SparkApplication {
 		public Object handle(Request request, Response response){
 		    String user = request.queryParams("id");
 		    humplayerA.setUsername(user);
-		    //response.status(200);
+		    compplayerA.setUsername("R2D2");
+		    compplayerB.setUsername("Awsome0");
 		    return humplayerA.getUsername();
 		            
 		}
 	    });
+	post(new Route("/results"){
+                @Override
+                public Object handle(Request request, Response response){
+		    String output;
+		    if(humplayerA.getWins() > 0 || humplayerA.getDraw() > 0 || humplayerA.getLost() > 0)
+			output += humplayerA.getUsername() + "won: "+ humplayerA.getWins() + " loss: " + humplayerA.getLost() + " and tied: " + humplayerA.getDraw() +" times" + "\n"; 
+		    if(humplayerB.getWins() > 0 || humplayerB.getDraw() > 0 || humplayerB.getLost() > 0) 
+			output += humplayerB.getUsername() + " won: " + humplayerB.getWins() + " loss: " + humplayerB.getLost() + " and tied: " + humplayerB.getDraw() +" times" + "\n"; 
+		    if(compplayerA.getWins() > 0 || compplayerA.getDraw() > 0 || compplayerA.getLost() > 0) 
+			output += compplayerA.getUsername() + " won: " + compplayerA.getWins() + " loss: " + compplayerA.getLost() + " and tied: " + compplayerA.getDraw() +" times" + "\n"; 
+		    if(compplayerB.getWins() > 0 || compplayerB.getDraw() > 0|| compplayerB.getLost() > 0) 
+			output += compplayerB.getUsername() + " won: " + compplayerB.getWins() + " loss: " + compplayerB.getLost() + " and tied: " + compplayerB.getDraw() +" times";
+		    
+		    return output;
+		    
+                }
+
+		
+         });
+
 	
 	post(new Route("/computervscomputer"){
 		@Override
