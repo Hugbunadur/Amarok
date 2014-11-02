@@ -76,6 +76,7 @@
 				</form>
 	        </div>
 	        <div id="output"></div>
+		<div id="output2"></div>
 		</div>
 
 		<script>
@@ -109,6 +110,7 @@
 				   var y = arr[i];
 				    $(tmp.concat(y)).attr('src',"gfx/o.png");
 				   }
+			$('#output2').html(arr.length).attr('class', 'alert alert-success');
 					     
 			}
 			
