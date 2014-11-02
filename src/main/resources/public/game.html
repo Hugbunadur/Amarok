@@ -122,6 +122,30 @@
 				<input type="submit" value="Start" class="btn" id="btn_compvscomp" /><br>
 				</form>
 	        </div>
+	        <div id="output"></div>
 		</div>
+
+		<script>
+		$(document).ready(function() {
+		
+		var form = $('form');
+		form.submit(function( event ) {
+         
+	                $.ajax({
+	                    type: form.attr('method'),
+	                    url: form.attr('action'),
+	                    data: null
+	                }).done(function(resultSet) {
+	                    $('#output').html(resultSet).attr('class', 'alert alert-success');
+	                    //window.location.href = "game.html"
+	                }).fail(function(Failes) {
+	                    $('#output').html('FAILED').attr('class', 'alert alert-danger');
+	                });
+	               event.preventDefault();
+
+		   });
+		});
+		
+		</script>
     </body>
 </html>        	

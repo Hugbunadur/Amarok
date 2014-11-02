@@ -36,9 +36,37 @@ public class PlayGameWeb implements SparkApplication {
 	    post(new Route("/computervscomputer"){
         	@Override
         	public Object handle(Request request, Response response){
-        		//compplayerA.(request.queryParams("ComputerPlayer"));
-        		response.status(200);
-                return response;
+
+            String resultSet = "";
+        	Point point;
+            Player player;
+            boolean win = false;
+            int finishGame = 0;
+            String[][] board = new String [3][3];
+            board = PlayGame.initialiazeTheBoard(board);
+            while(!win){
+                if(finishGame % 2 != 0) { //player2 makes a move
+                    player = compplayerB;
+            }else { // player 1 makes a move
+                player = compplayerA;
+        }
+        
+        point = PlayGame.getApointFromThePlayer(player);
+        if(PlayGame.checkForInvalidMove(board, point)){
+            point = makeAvalidMove(board, point, player); 
+        }
+
+        board = PlayGame.SetAsymbolOnTheBoard(board, point, symbol);
+        finishGame++; //player1 has made a move
+                
+        win = PlayGame.checkWins(board);
+        //TODO: record victory!
+        resultSet += point.getX();
+        resultSet += point.getY();
+        resultSet += ",";      
+    }
+
+                return resultSet;
         	}
 
         });
