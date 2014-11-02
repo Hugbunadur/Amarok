@@ -1,3 +1,4 @@
+Travis build status for the main branch: https://magnum.travis-ci.com/Hugbunadur/Amarok.svg?token=YaappV4xYWzLJKNxXhDm&branch=master
 
 #The Assignment
 
