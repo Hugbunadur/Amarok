@@ -140,22 +140,22 @@
 	                   
 
 		          var arr = resultSet.split(',');
-		           var len = arr.length - 1;
+		           var len = arr.length;
 		           var x, y;
-
+		           var tmp = "#";
 		           
-		          for(int i = 0; i < len; i++){
+		          for(var i = 0; i < len; i++){
 				   if(i % 2 === 0){
 				   // TODO handle X
 				    x = arr[i];
 				
-				    $("#".concat(x)).attr('src',"gfx/x.png");
+				    $(tmp.concat(x)).attr('src',"gfx/x.png");
 
 				   }
 				   else{
 				   // TODO handle O
 				    y = arr[i];
-				    $("#".concat(y)).attr('src',"gfx/o.png");
+				    $(tmp.concat(y)).attr('src',"gfx/o.png");
 				   }
 				   }
 
