@@ -22,7 +22,7 @@ public class PlayGameWeb implements SparkApplication {
 	final ComputerPlayer compplayerA = new ComputerPlayer();
 	final ComputerPlayer compplayerB = new ComputerPlayer();
 
-	post(new Route("/username1"){
+	post(new Route("/username"){
                 @Override
 		public Object handle(Request request, Response response){
 		    String user = request.queryParams("id");
