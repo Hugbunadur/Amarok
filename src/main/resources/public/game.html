@@ -93,7 +93,7 @@
 	                   
 
 		          var arr = resultSet.split(',');
-		           var len = arr.length - 1;
+		           var len = arr.length;
 		           var x, y;
 		           var tmp = "#";
 		           
@@ -110,8 +110,9 @@
 				    y = arr[i];
 				    $(tmp.concat(y)).attr('src',"gfx/o.png");
 				   }
+					     len = 0;
 			}
-
+			
 		
 	                }).fail(function(Failes) {
 	                    $('#output').html('FAILED').attr('class', 'alert alert-danger');
