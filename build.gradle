@@ -2,12 +2,13 @@
 plugins {
 	id "org.ajoberstar.github-pages" version "0.11.2"
 
+
 }
 
 apply plugin: 'java'
 apply plugin: 'application'
 apply plugin: 'jacoco'
-apply from: 'http://tellurianring.com/projects/gradle-plugins/gradle-release/apply.groovy'
+
 
 repositories {
   	jcenter()
@@ -162,4 +163,8 @@ test {
 	    destinationFile = file("$buildDir/codeCoverageReport/ccTest.exec")
 	    classDumpFile = file("$buildDir/codeCoverageReport/classpathdumps")
      }
+}
+
+hipchat {
+	token = "43b2e71576032d3df4bd7e5307fc81"
 }

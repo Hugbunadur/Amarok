@@ -234,7 +234,8 @@ public class PlayGame {
 	    System.out.println("--------------------------------------------");
 	    System.out.println("\tWould you like to play again!?\n");
 	    player1.setDraw(player1.getDraw() + 1);
-	    player2.setDraw(player2.getDraw() + 1); 
+	    player2.setDraw(player2.getDraw() + 1);
+	    printMenu();
 	    return true;
 	}
 	return false;
