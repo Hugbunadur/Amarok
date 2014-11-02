@@ -166,4 +166,5 @@ release {
 	failOnUpdateNeeded = false
 	failOnPublishNeeded = false
 	preCommitText = 'Amarok release'
+	newVersionCommitMessage = 'NEW VERSION'
 }
