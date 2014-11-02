@@ -118,7 +118,7 @@
 	                    <a href="#" id="c3"><img alt="X" class="scale" src="gfx/bg.png" id="22"/></a>
 	        		</div>
 	        	</div>
-	        	<form method="post" action="/computervscomputer" role="formComputer">
+	        	<form method="post" action="/computervscomputer" role="form">
 				<input type="submit" value="Start" class="btn" id="btn_compvscomp" /><br>
 				</form>
 	        </div>
@@ -128,7 +128,7 @@
 		<script>
 		$(document).ready(function() {
 		
-		var form = $('formComputer');
+		var form = $('form');
 		form.submit(function( event ) {
          
 	                $.ajax({
