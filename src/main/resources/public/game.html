@@ -71,54 +71,54 @@
 	        	<!-- first row -->
 	        	<div class="square">
 	        		<div class="content">
-	                    <a href="#" id="a1"><img alt="X" class="scale" src="gfx/bg.png" id="x1"/></a>
+	                    <a href="#" id="a1"><img alt="X" class="scale" src="gfx/bg.png" id="00"/></a>
 	        		</div>
 	        	</div>
 				<div class="square">
 	        		<div class="content">
-	                    <a href="#" id="a2"><img alt="X" class="scale" src="gfx/bg.png" id="x2"/></a>
+	                    <a href="#" id="a2"><img alt="X" class="scale" src="gfx/bg.png" id="01"/></a>
 	        		</div>
 	        	</div>
 	        	<div class="square">
 	        		<div class="content" >
-	                    <a href="#" id="a3"><img alt="X" class="scale" src="gfx/bg.png" id="x3"/></a>
+	                    <a href="#" id="a3"><img alt="X" class="scale" src="gfx/bg.png" id="02"/></a>
 	        		</div>
 	        	</div>
 	        	
 				<!-- second row -->
 					<div class="square">
 	        		<div class="content">
-	                    <a href="#" id="b1"><img alt="X" class="scale" src="gfx/bg.png" id="x4"/></a>
+	                    <a href="#" id="b1"><img alt="X" class="scale" src="gfx/bg.png" id="10"/></a>
 	        		</div>
 	        	</div>
 				<div class="square">
 	        		<div class="content">
-	                    <a href="#" id="b2"><img alt="X" class="scale" src="gfx/bg.png" id="x5"/></a>
+	                    <a href="#" id="b2"><img alt="X" class="scale" src="gfx/bg.png" id="11"/></a>
 	        		</div>
 	        	</div>
 	        	<div class="square">
 	        		<div class="content" >
-	                    <a href="#" id="b3"><img alt="X" class="scale" src="gfx/bg.png" id="x6"/></a>
+	                    <a href="#" id="b3"><img alt="X" class="scale" src="gfx/bg.png" id="12"/></a>
 	        		</div>
 	        	</div>
 
 	        	<!-- third row -->
 	        	<div class="square">
 	        		<div class="content">
-	                    <a href="#" id="c1"><img alt="X" class="scale" src="gfx/bg.png" id="x7"/></a>
+	                    <a href="#" id="c1"><img alt="X" class="scale" src="gfx/bg.png" id="20"/></a>
 	        		</div>
 	        	</div>
 				<div class="square">
 	        		<div class="content">
-	                    <a href="#" id="c2"><img alt="X" class="scale" src="gfx/bg.png" id="x8"/></a>
+	                    <a href="#" id="c2"><img alt="X" class="scale" src="gfx/bg.png" id="21"/></a>
 	        		</div>
 	        	</div>
 	        	<div class="square">
 	        		<div class="content" >
-	                    <a href="#" id="c3"><img alt="X" class="scale" src="gfx/bg.png" id="x9"/></a>
+	                    <a href="#" id="c3"><img alt="X" class="scale" src="gfx/bg.png" id="22"/></a>
 	        		</div>
 	        	</div>
-	        	<form method="post" action="/computervscomputer" role="form">
+	        	<form method="post" action="/computervscomputer" role="formComputer">
 				<input type="submit" value="Start" class="btn" id="btn_compvscomp" /><br>
 				</form>
 	        </div>
@@ -128,7 +128,7 @@
 		<script>
 		$(document).ready(function() {
 		
-		var form = $('form');
+		var form = $('formComputer');
 		form.submit(function( event ) {
          
 	                $.ajax({
@@ -137,7 +137,29 @@
 	                    data: null
 	                }).done(function(resultSet) {
 	                    $('#output').html(resultSet).attr('class', 'alert alert-success');
-	                    //window.location.href = "game.html"
+	                   
+
+		           var arr = data.split(',');
+		           var len = arr.length;
+		           var x, y;
+
+		           
+		          for(int i = 0, i < len, i++){
+				   if(i % 2 === 0){
+				   // TODO handle X
+				    x = arr[i];
+				
+				    $("#".concat(x)).attr('src',"gfx/x.png");
+
+				   }
+				   else{
+				   // TODO handle O
+				    y = arr[i];
+				    $("#".concat(x)).attr('src',"gfx/x.png");
+				   }
+				   }
+
+
 	                }).fail(function(Failes) {
 	                    $('#output').html('FAILED').attr('class', 'alert alert-danger');
 	                });
