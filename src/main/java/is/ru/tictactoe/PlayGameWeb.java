@@ -3,6 +3,7 @@ package is.ru.tictactoe;
 import spark.*;
 import static spark.Spark.*;
 import spark.servlet.SparkApplication;
+import java.lang.StringBuilder;
 
 public class PlayGameWeb implements SparkApplication {
     public static void main(String[] args){
@@ -24,18 +25,39 @@ public class PlayGameWeb implements SparkApplication {
 
 	post(new Route("/username"){
                 @Override
-		    public Object handle(Request request, Response response){
+		public Object handle(Request request, Response response){
 		    String user = request.queryParams("id");
 		    humplayerA.setUsername(user);
-		    //response.status(200);
+		    compplayerA.setUsername("R2D2");
+		    compplayerB.setUsername("Awsome0");
 		    return humplayerA.getUsername();
-		        
+		            
 		}
 	    });
+	post(new Route("/results"){
+                @Override
+                public Object handle(Request request, Response response){
+		    StringBuilder output = new StringBuilder();
+		    if(humplayerA.getWins() > 0 || humplayerA.getDraw() > 0 || humplayerA.getLost() > 0)
+			output.append(humplayerA.getUsername() + "won: "+ humplayerA.getWins() + " loss: " + humplayerA.getLost() + " and tied: " + humplayerA.getDraw() +" times" + "\n"); 
+		    if(humplayerB.getWins() > 0 || humplayerB.getDraw() > 0 || humplayerB.getLost() > 0) 
+			output.append(humplayerB.getUsername() + " won: " + humplayerB.getWins() + " loss: " + humplayerB.getLost() + " and tied: " + humplayerB.getDraw() +" times" + "\n"); 
+		    if(compplayerA.getWins() > 0 || compplayerA.getDraw() > 0 || compplayerA.getLost() > 0) 
+			output.append(compplayerA.getUsername() + " won: " + compplayerA.getWins() + " loss: " + compplayerA.getLost() + " and tied: " + compplayerA.getDraw() +" times" + "\n"); 
+		    if(compplayerB.getWins() > 0 || compplayerB.getDraw() > 0|| compplayerB.getLost() > 0) 
+			output.append(compplayerB.getUsername() + " won: " + compplayerB.getWins() + " loss: " + compplayerB.getLost() + " and tied: " + compplayerB.getDraw() +" times");
+		    
+		    return output.toString();
+		    
+                }
+
+		
+         });
+
 	
 	post(new Route("/computervscomputer"){
 		@Override
-		    public Object handle(Request request, Response response){
+		public Object handle(Request request, Response response){
 		    String resultSet = ""; 
 		    Point point;
 		    boolean win = false;
@@ -79,7 +101,7 @@ public class PlayGameWeb implements SparkApplication {
 
 
 		    }
-		   resultSet = resultSet.substring(0,resultSet.length() - 1);
+		    resultSet = resultSet.substring(0,resultSet.length() - 1);
 		    return resultSet;
 		}
 
@@ -87,10 +109,10 @@ public class PlayGameWeb implements SparkApplication {
 
 
         /*post(new Route("Player vs Computer"){
-	  @Override
-	  public Object handle(Request request, Response response){
-	  humplayer.setUsername(request.queryParams("HumanPlayer"));
-	  response.status(200);
+	    @Override
+	      public Object handle(Request request, Response response){
+	        humplayer.setUsername(request.queryParams("HumanPlayer"));
+		  response.status(200);
                 return response;
 		}
         });
@@ -100,9 +122,9 @@ public class PlayGameWeb implements SparkApplication {
         humplayer.setUsername(request.queryParams("HumanPlayer1"));
         humplayer.setUsername(request.queryParams("HumanPlayer2"));
         response.status(200);
-                return response;
-		}
-        });
+	return response;
+    }
+    });
 	*/
  
     }
