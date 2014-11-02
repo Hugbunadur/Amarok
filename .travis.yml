@@ -14,5 +14,8 @@ notifications:
   email:
     recipients:
       - danieltg13@ru.is
-  on_success: never
-  on_failure: always
+  on_success: always
+  on_failure: never
+
+script:
+ - gradle clean build check stats messageTask
