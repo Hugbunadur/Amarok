@@ -84,10 +84,10 @@
 
 	<script>
 	  $(document).ready(function() {
-	  
+	  alert("fyrir");
 	   var form2 = $('form2');
           form2.submit(function( event ) {
-
+	  alert("eftir");
                           $.ajax({
                               type: form2.attr('method'),
                               url: form2.attr('action'),
