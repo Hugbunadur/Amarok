@@ -38,7 +38,7 @@ public class PlayGameWeb implements SparkApplication {
                 @Override
                 public Object handle(Request request, Response response){
 		    StringBuilder output = new StringBuilder();
-		    if(humplayerA.getWins() > 0 || humplayerA.getDraw() > 0 || humplayerA.getLost() > 0)
+		    /*  if(humplayerA.getWins() > 0 || humplayerA.getDraw() > 0 || humplayerA.getLost() > 0)
 			output.append(humplayerA.getUsername() + "won: "+ humplayerA.getWins() + " loss: " + humplayerA.getLost() + " and tied: " + humplayerA.getDraw() +" times" + "\n"); 
 		    if(humplayerB.getWins() > 0 || humplayerB.getDraw() > 0 || humplayerB.getLost() > 0) 
 			output.append(humplayerB.getUsername() + " won: " + humplayerB.getWins() + " loss: " + humplayerB.getLost() + " and tied: " + humplayerB.getDraw() +" times" + "\n"); 
@@ -47,7 +47,9 @@ public class PlayGameWeb implements SparkApplication {
 		    if(compplayerB.getWins() > 0 || compplayerB.getDraw() > 0|| compplayerB.getLost() > 0) 
 			output.append(compplayerB.getUsername() + " won: " + compplayerB.getWins() + " loss: " + compplayerB.getLost() + " and tied: " + compplayerB.getDraw() +" times");
 		    
-		    return output.toString();
+			return output.toString();*/
+		    String bla = "THIS WORKS";
+		    return bla;
 		    
                 }
 
