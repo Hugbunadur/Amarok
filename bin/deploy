@@ -2,4 +2,4 @@
 mkdir -p "$HOME/Buildfiles"
 cp ~/Amarok/build/libs/* ~/Buildfiles
 cp ~/Amarok/build/install/Amarok/bin/* ~/Buildfiles
- 
+cp ~/Amarok/bin/playing/* ~/Buildfiles 
