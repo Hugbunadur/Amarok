@@ -7,7 +7,8 @@ plugins {
 apply plugin: 'java'
 apply plugin: 'application'
 apply plugin: 'jacoco'
-apply plugin: 'org.ajoberstar.release-base'
+
+apply from: 'http://tellurianring.com/projects/gradle-plugins/gradle-release/1.2/apply.groovy'
 
 repositories {
   	     jcenter()
@@ -162,47 +163,25 @@ task messageTask(type: com.github.blazsolar.gradle.hipchat.tasks.SendMessageTask
      color = "red"
 }
 
-import org.ajoberstar.grgit.*
+//import org.ajoberstar.grgit.*
 
-ext.repo = Grgit.open(project.file('.'))
+//ext.repo = Grgit.open(project.file('.'))
 
-version = "1.0.0-${repo.head().abbreviatedId}"
+//version = "1.0.0-${repo.head().abbreviatedId}"
 
-task tagRelease << {
-  repo.tag.add {
-    name = version
-    message = "Release of ${version}"
-  }
-}
+//task tagRelease << {
+//  repo.tag.add {
+//    name = version
+//    message = "Release of ${version}"
+//  }
+//}
 
-githubPages {
-  repoUri = 'https://github.com/Hugbunadur/Amarok.git'
-  pages {
-    from javadoc.outputs.files
-  }
-}
+//githubPages {
+//  repoUri = 'https://github.com/Hugbunadur/Amarok.git'
+//  pages {
+//    from javadoc.outputs.files
+//  }
+//}
 
-import org.ajoberstar.gradle.git.release.semver.SemVerStrategy
-import org.ajoberstar.gradle.git.release.opinion.Strategies
 
-release {
-  // need to specify the repository to interact with
-  grgit = Grgit.open(project.file('.'))
 
-  // no strategies are added by the base plugin
-
-  // add your own custom strategy
-  //versionStrategy(new CustomVersionStrategy())
-
-  // add an opinionated sample
-  versionStrategy Strategies.FINAL
-
-  // set the default, can be one already added or something else
-  defaultVersionStrategy = Strategies.SNAPSHOT
-
-  // the approach to creating tags can also be modified
-  tagStrategy {
-    prefixNameWithV = false // defaults to true
-    generateMessage = { version -> "My new version $version.version" }
-  }
-}
