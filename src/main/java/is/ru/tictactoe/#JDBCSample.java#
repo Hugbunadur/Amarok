@@ -1,0 +1,47 @@
+import java.sql.*;
+ 
+public class JDBCSample {
+ 
+    public static void main( String args[]) {
+ 
+	//String connectionURL = "jdbc:://localhost:3306/Testing;user=root;password=1204922099";
+	// Change the connection string according to your db, ip, username and password
+ 
+	String url = "jdbc:mysql://localhost:3306/Testing";
+	Connection con = null;
+
+	try {
+ 
+	    // Load the Driver class. 
+	    Class.forName ("com.mysql.jdbc.Driver").newInstance ();
+	    //Class.forName("org.postgresql.Driver");
+	    // If you are using any other database then load the right driver here.
+	    con = DriverManager.getConnection(url + "user=root&password=1204922099"); 
+	    //Create the connection using the static getConnection method
+
+	    //Connection con = DriverManager.getConnection (connectionURL);
+ 
+	    //Create a Statement class to execute the SQL statement
+	    Statement stmt = con.createStatement();
+ 
+	    //Execute the SQL statement and get the results in a Resultset
+	    ResultSet rs = stmt.executeQuery("select Name from Players");
+ 
+	    // Iterate through the ResultSet, displaying two values
+	    // for each row using the getString method
+ 
+	    while (rs.next())
+		System.out.println("Name= " + rs.getString("Name"));
+	}
+	catch (SQLException e) {
+	    e.printStackTrace();
+	}
+	catch (Exception e) {
+	    e.printStackTrace();
+	}
+	finally {
+	    // Close the connection
+	    //con.close();
+	}
+    }
+}
