@@ -31,11 +31,11 @@ body {
 }
 
 p {
-	font-size: 20px;
+    font-size: 20px;
 }
 
 h1 {
-	font-size: 80px;
+    font-size: 80px;
   color: #394859;
   margin: 10px;
   font-style: italic;
@@ -50,23 +50,23 @@ h2 {
 }
 
 .playertwo {
-	display:none;
+    display:none;
 }
 
 .board {
-	  margin-left: auto;
+      margin-left: auto;
     margin-right: auto;
     width: 50%;
     height: 50%;
 }
 
 .square {
-	float:left;
-	position: relative;
-	width: 30%;
-	margin: 1.5%;
+    float:left;
+    position: relative;
+    width: 30%;
+    margin: 1.5%;
   border-color: #ccc;
-	background-color: #c5edf9;
+  background-color: #c5edf9;
   border-radius: 6px;
   -webkit-transition: background-color 1s;
   transition: background-color 1s;
@@ -77,9 +77,9 @@ h2 {
 }
 
 .showX {
-	background-image: url('gfx/x.png');
-	position: relative;
-	width: 100%;
+    background-image: url('gfx/x.png');
+    position: relative;
+    width: 100%;
 }
 
 #footer {
