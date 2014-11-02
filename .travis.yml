@@ -4,8 +4,9 @@ jdk:
 
 deploy:
   provider: heroku
-
+  api_key: "80d455ca-c518-4912-892b-2770c15051d9"
 addons:
   sauce_connect:
     username: "Tegn"
-    access_key: "opensays"
+    access_key: "01740e1d-44dc-4203-857d-62960b201638"
+
