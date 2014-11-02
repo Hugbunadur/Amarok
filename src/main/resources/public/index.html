@@ -20,7 +20,7 @@
 		            Please enter your player name to continue</p>
 		                <form method="post" action="/username" role="form">
 				        <input type="text" id="player1" name="player1" placeholder=" Player name"/> <br><br>
-					      <input type="submit" value="Continue" /> <br/><br/><br/>
+					      <input type="submit" value="Continue" id="btn" /> <br/><br/><br/>
 					            </form>
 				    <div class="output"></div>
 				      </div>
@@ -43,7 +43,7 @@
 	                          url: form.attr('action'),
 	                          data: 'id='+ player1
 	                      }).done(function(doneGetName) {
-	                         $('.output').html(doneGetName).attr('class', 'alert alert-success');
+	                       //  $('.output').html(doneGetName).attr('class', 'alert alert-success');
 	                         location.href = "menu.html"
 	                      });
 	                   
