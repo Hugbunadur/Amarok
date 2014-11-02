@@ -2,12 +2,10 @@ language: java
 jdk:
   - openjdk7
 
-
 deploy:
-provider: heroku
+  provider: heroku
+
 addons:
-sauce_connect:
-username: "Tegn"
-access_key: "opensays"
-
-
+  sauce_connect:
+    username: "Tegn"
+    access_key: "opensays"
