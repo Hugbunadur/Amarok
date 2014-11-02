@@ -1,39 +1,24 @@
-
 plugins {
+	id "org.kordamp.gradle.stats" version "0.1.3"
+	id "com.github.blazsolar.hipchat" version "0.2.0"
 	id "org.ajoberstar.github-pages" version "0.11.2"
-
-
 }
 
 apply plugin: 'java'
 apply plugin: 'application'
 apply plugin: 'jacoco'
-
+apply plugin: 'org.ajoberstar.release-base'
 
 repositories {
-  	jcenter()
-}
-githubPages {
-  repoUri = 'git@github.com:Hugbunadur/Amarok.git'      
-  pages {
-     from(file('Amarok')) {
-     	into '.'                                    
-     }
-  }
-}
-task publish(type: GradleBuild) {           
-    buildFile = 'publish.gradle'
-    tasks = ['publishGhPages']
+  	     jcenter()
 }
 
 sourceSets {
-    	selenium
-    	seleniumXvfb
+    	   selenium
+    	   seleniumXvfb
 }
 
 dependencies {
-	
-
         compile 'org.slf4j:slf4j-api:1.7.5'
         compile fileTree(dir: 'lib', include: ['*.jar'])
 
@@ -59,59 +44,59 @@ dependencies {
 mainClassName = "is.ru.tictactoe.PlayGame"
 
 task selenium(type: Test, dependsOn: installApp) {
-    	testClassesDir = sourceSets.selenium.output.classesDir
-    	classpath = sourceSets.selenium.runtimeClasspath
+     testClassesDir = sourceSets.selenium.output.classesDir
+     classpath = sourceSets.selenium.runtimeClasspath
 
-    	ant.condition(property: "os", value: "windows") { os(family: "windows") }
-    	ant.condition(property: "os", value: "unix"   ) { os(family: "unix")    }
+     ant.condition(property: "os", value: "windows") { os(family: "windows") }
+     ant.condition(property: "os", value: "unix"   ) { os(family: "unix")    }
 
-    	doFirst {
-        	switch(ant.properties.os) {
-            		case 'unix':
-                	'build/install/tictactoe/bin/tictactoe &'.execute()
-                	break
-            		case 'windows':
-                	'build\\install\\tictactoe\\bin\\tictactoe.bat'.execute()
-               		 break
+     doFirst {
+             switch(ant.properties.os) {
+             			       case 'unix':
+                		       'build/install/tictactoe/bin/tictactoe &'.execute()
+                		       break
+					case 'windows':
+                			'build\\install\\tictactoe\\bin\\tictactoe.bat'.execute()
+						 break
         }
     }
 }
 
 task seleniumXvfb(type: Test, dependsOn: installApp) {
-    	testClassesDir = sourceSets.selenium.output.classesDir
-    	classpath = sourceSets.selenium.runtimeClasspath
+     testClassesDir = sourceSets.selenium.output.classesDir
+     classpath = sourceSets.selenium.runtimeClasspath
 
-    	environment "DISPLAY", ":99"
+     environment "DISPLAY", ":99"
 
-    	doFirst {
-        	'bin/xvfb start'.execute()
-        	'build/install/Amarok/bin/Amarok &'.execute()
-    	}
+     doFirst {
+             'bin/xvfb start'.execute()
+             'build/install/Amarok/bin/Amarok &'.execute()
+    	     }
     
-    	doLast {
-        	'bin/xvfb stop'.execute()
-    	}
+	doLast {
+               'bin/xvfb stop'.execute()
+    	       }
 }
 
 task stage { 
-    	dependsOn installApp 
+     dependsOn installApp 
 }
 
 test {
-    	testLogging {
-        	exceptionFormat = 'full'
-    	}
+     testLogging {
+        	 exceptionFormat = 'full'
+    		 }
 }
 
 
 
 // jar
-def jarDirectory = file('../AmarokJar') 
+def jarDirectory = new File('../AmarokJar') 
 
 jar {
-	manifest {
- 		attributes("Main-Class": "is.ru.tictactoe.PlayGame")
-    	} 
+    manifest {
+    	     attributes("Main-Class": "is.ru.tictactoe.PlayGame")
+    	     } 
 }
 task runJarFromAnotherDir {
     doFirst{
@@ -128,16 +113,16 @@ task runJarFromAnotherDir {
 applicationDefaultJvmArgs = ["-Dgreeting.language=en"]
 
 task createDocs {
-	def docs = file("$buildDir/docs")
-	outputs.dir docs
- 	doLast {
-        	docs.mkdirs()
-       		new File(docs, "readme.txt").write("Read me!")
-    	}
+     def docs = file("$buildDir/docs")
+     outputs.dir docs
+     doLast {
+            docs.mkdirs()
+		new File(docs, "readme.txt").write("Read me!")
+    		}
 }
 
 applicationDistribution.from(createDocs) {
-	into "docs"
+					 into "docs"
 }
 
 run{
@@ -150,21 +135,74 @@ jacoco {
 }
 
 jacocoTestReport {
-	reports {
-		xml.enabled false
-		csv.enabled false
-		html.destination "$buildDir/ccReport"
-	}
+		 reports {
+		 	 xml.enabled false
+			 	     csv.enabled false
+				     		 html.destination "$buildDir/ccReport"
+						 }
 }
 
 test {
      jacoco {
-     	    append = false
-	    destinationFile = file("$buildDir/codeCoverageReport/ccTest.exec")
-	    classDumpFile = file("$buildDir/codeCoverageReport/classpathdumps")
+     	        append = false
+		    destinationFile = file("$buildDir/codeCoverageReport/ccTest.exec")
+		        classDumpFile = file("$buildDir/codeCoverageReport/classpathdumps")
      }
 }
 
 hipchat {
 	token = "43b2e71576032d3df4bd7e5307fc81"
+}
+
+task messageTask(type: com.github.blazsolar.gradle.hipchat.tasks.SendMessageTask) {
+     roomId = "Amarok"
+     userId = "1"
+     message = "The project was successfully built!"
+     userName = "GradleBuilder"
+     color = "red"
+}
+
+import org.ajoberstar.grgit.*
+
+ext.repo = Grgit.open(project.file('.'))
+
+version = "1.0.0-${repo.head().abbreviatedId}"
+
+task tagRelease << {
+  repo.tag.add {
+    name = version
+    message = "Release of ${version}"
+  }
+}
+
+githubPages {
+  repoUri = 'https://github.com/Hugbunadur/Amarok.git'
+  pages {
+    from javadoc.outputs.files
+  }
+}
+
+import org.ajoberstar.gradle.git.release.semver.SemVerStrategy
+import org.ajoberstar.gradle.git.release.opinion.Strategies
+
+release {
+  // need to specify the repository to interact with
+  grgit = Grgit.open(project.file('.'))
+
+  // no strategies are added by the base plugin
+
+  // add your own custom strategy
+  //versionStrategy(new CustomVersionStrategy())
+
+  // add an opinionated sample
+  versionStrategy Strategies.FINAL
+
+  // set the default, can be one already added or something else
+  defaultVersionStrategy = Strategies.SNAPSHOT
+
+  // the approach to creating tags can also be modified
+  tagStrategy {
+    prefixNameWithV = false // defaults to true
+    generateMessage = { version -> "My new version $version.version" }
+  }
 }
