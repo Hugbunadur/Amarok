@@ -6,7 +6,8 @@
 # Package Files #
 *.war
 *.ear
-
+*.bin
+*.lock
 
 .DS_Store
 #ignore gradle build directory
