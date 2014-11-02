@@ -36,12 +36,12 @@ public class PlayGameWeb implements SparkApplication {
 	    post(new Route("/computervscomputer"){
         	@Override
         	public Object handle(Request request, Response response){
-
+    Strng resultSet = ""; 
     Point point;
     boolean win = false;
     int finishGame = 0;
     String symbol = "X";
-    Player player;
+    Player player, loser;
     String[][] board = new String [3][3];
     board = PlayGame.initialiazeTheBoard(board);
     while(!win){
