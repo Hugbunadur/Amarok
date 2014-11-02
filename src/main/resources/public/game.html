@@ -8,8 +8,7 @@
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
         <script>
 
-
-	</script>
+</script>
     </head>
 
     <body>
@@ -110,13 +109,21 @@
 				   // TODO handle X
 				    var x = arr[i];
 				
-				    $(tmp.concat(x)).attr('src',"gfx/x.png");
+				   $(tmp.concat(x)).fadeOut(function() {
+			               $(this).attr('src',"gfx/x.png").fadeIn();
+				    });
+
+
+				    //$(tmp.concat(x)).attr('src',"gfx/x.png");
 
 				   }
 				   else{
-				   // TODO handle O
-				   var y = arr[i];
-				    $(tmp.concat(y)).attr('src',"gfx/o.png");
+
+			          var y = arr[i];
+				    //$(tmp.concat(y)).attr('src',"gfx/o.png");
+					     $(tmp.concat(y)).fadeOut(function() {
+					     $(this).attr('src',"gfx/o.png").fadeIn();
+					     });
 				   }
 
 			
