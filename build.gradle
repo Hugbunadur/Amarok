@@ -7,7 +7,7 @@ apply plugin: 'java'
 apply plugin: 'pmd'
 apply plugin: 'application'
 apply plugin: 'jacoco'
-//apply from: 'http://tellurianring.com/projects/gradle-plugins/gradle-release/apply.groovy'
+apply from: 'http://tellurianring.com/projects/gradle-plugins/gradle-release/apply.groovy'
 
 repositories {
   	     jcenter()
@@ -163,13 +163,11 @@ task wrapper(type: Wrapper) {
     gradleVersion = '2.1'
 }
 
-//release {
-//	failOnCommitNeeded = false
-//	failOnUpdateNeeded = false
-//	failOnPublishNeeded = false
-//	preCommitText = 'Amarok release :'
-//	newVersionCommitMessage = 'NEW VERSION'
-//	tagPrefix = 'TicTacToe'
-//}
-
-
+release {
+	failOnCommitNeeded = false
+	failOnUpdateNeeded = false
+	failOnPublishNeeded = false
+	preCommitText = 'Amarok release :'
+	newVersionCommitMessage = 'NEW VERSION'
+	tagPrefix = 'TicTacToe'
+}
