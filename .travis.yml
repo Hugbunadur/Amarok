@@ -10,3 +10,9 @@ addons:
     username: "Tegn"
     access_key: "01740e1d-44dc-4203-857d-62960b201638"
 
+notifications:
+  email:
+    recipients:
+      - danieltg13@ru.is
+  on_success: never
+  on_failure: always
