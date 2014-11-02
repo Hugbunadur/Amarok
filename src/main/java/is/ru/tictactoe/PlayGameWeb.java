@@ -24,13 +24,13 @@ public class PlayGameWeb implements SparkApplication {
 
 	post(new Route("/username"){
             @Override
-		    public Object handle(Request request, Response response){
-		    String user = request.queryParams("id");
-			humplayerA.setUsername(user);
-			//response.status(200);
-			return humplayerA.getUsername();
+	    public Object handle(Request request, Response response){
+	    String user = request.queryParams("id");
+	    humplayerA.setUsername(user);
+	    	//response.status(200);
+	   return humplayerA.getUsername();
 		    
-		    }
+	  }
         });
 	
 	    post(new Route("/computervscomputer"){
