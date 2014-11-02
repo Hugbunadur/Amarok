@@ -1,19 +1,29 @@
+
 plugins {
-	id "org.kordamp.gradle.stats" version "0.1.3"
+	id "org.ajoberstar.github-pages" version "0.11.2"
+
 }
 
 apply plugin: 'java'
 apply plugin: 'application'
 apply plugin: 'jacoco'
+apply from: 'http://tellurianring.com/projects/gradle-plugins/gradle-release/apply.groovy'
 
 repositories {
   	jcenter()
 }
-
-
-
-
-
+githubPages {
+  repoUri = 'git@github.com:Hugbunadur/Amarok.git'      
+  pages {
+     from(file('Amarok')) {
+     	into '.'                                    
+     }
+  }
+}
+task publish(type: GradleBuild) {           
+    buildFile = 'publish.gradle'
+    tasks = ['publishGhPages']
+}
 
 sourceSets {
     	selenium
@@ -21,6 +31,8 @@ sourceSets {
 }
 
 dependencies {
+	
+
         compile 'org.slf4j:slf4j-api:1.7.5'
         compile fileTree(dir: 'lib', include: ['*.jar'])
 
@@ -93,7 +105,7 @@ test {
 
 
 // jar
-def jarDirectory = new File('../AmarokJar') 
+def jarDirectory = file('../AmarokJar') 
 
 jar {
 	manifest {
