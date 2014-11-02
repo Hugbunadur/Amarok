@@ -1,144 +1,149 @@
 <!DOCTYPE html>
 <html>
     <head>
-    	 <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+       <meta http-equiv="content-type" content="text/html; charset=utf-8" />
         <title>TicTacToe</title>
         <link rel="stylesheet" href="main.css">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/bootstrap/3.3.0/css/bootstrap-theme.min.css">
-        <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+        <script src="scriptjava.js"></script>
         <script>
-
 </script>
     </head>
 
     <body>
-    	<div class="header"><a href="index.html"><img alt="logo" src="gfx/logo.png"></a></div>
-    	<!-- main container -->
+      <div class="header"><a href="index.html"><img alt="logo" src="gfx/logo.png"></a></div>
+      <!-- main container -->
         <div class="container">
 
-			<h2>Play TicTacToe</h2>
+	  <h2>Play TicTacToe</h2>
 
-	        <div class="board">
+	          <div class="board">
 
-	        	<!-- first row -->
-	        	<div class="square">
-	        		<div class="content">
-	                    <a href="#" id="a1"><img alt="X" class="scale" src="gfx/bg.png" id="00"/></a>
-	        		</div>
-	        	</div>
-				<div class="square">
-	        		<div class="content">
-	                    <a href="#" id="a2"><img alt="X" class="scale" src="gfx/bg.png" id="01"/></a>
-	        		</div>
-	        	</div>
-	        	<div class="square">
-	        		<div class="content" >
-	                    <a href="#" id="a3"><img alt="X" class="scale" src="gfx/bg.png" id="02"/></a>
-	        		</div>
-	        	</div>
-	        	
-				<!-- second row -->
-					<div class="square">
-	        		<div class="content">
-	                    <a href="#" id="b1"><img alt="X" class="scale" src="gfx/bg.png" id="10"/></a>
-	        		</div>
-	        	</div>
-				<div class="square">
-	        		<div class="content">
-	                    <a href="#" id="b2"><img alt="X" class="scale" src="gfx/bg.png" id="11"/></a>
-	        		</div>
-	        	</div>
-	        	<div class="square">
-	        		<div class="content" >
-	                    <a href="#" id="b3"><img alt="X" class="scale" src="gfx/bg.png" id="12"/></a>
-	        		</div>
-	        	</div>
+		    <!-- first row -->
+		    <div class="square">
+		      <div class="content">
+			                    <a href="#" id="a1"><img alt="X" class="scale" src="gfx/bg.png" id="00"/></a>
+					    </div>
+		      </div>
+		    <div class="square">
+		      <div class="content">
+			                    <a href="#" id="a2"><img alt="X" class="scale" src="gfx/bg.png" id="01"/></a>
+					    </div>
+		      </div>
+		    <div class="square">
+		      <div class="content" >
+			                    <a href="#" id="a3"><img alt="X" class="scale" src="gfx/bg.png" id="02"/></a>
+					    </div>
+		      </div>
+		    
+		    <!-- second row -->
+		    <div class="square">
+		      <div class="content">
+			                    <a href="#" id="b1"><img alt="X" class="scale" src="gfx/bg.png" id="10"/></a>
+					    </div>
+		      </div>
+		    <div class="square">
+		      <div class="content">
+			                    <a href="#" id="b2"><img alt="X" class="scale" src="gfx/bg.png" id="11"/></a>
+					    </div>
+		      </div>
+		    <div class="square">
+		      <div class="content" >
+			                    <a href="#" id="b3"><img alt="X" class="scale" src="gfx/bg.png" id="12"/></a>
+					    </div>
+		      </div>
 
-	        	<!-- third row -->
-	        	<div class="square">
-	        		<div class="content">
-	                    <a href="#" id="c1"><img alt="X" class="scale" src="gfx/bg.png" id="20"/></a>
-	        		</div>
-	        	</div>
-				<div class="square">
-	        		<div class="content">
-	                    <a href="#" id="c2"><img alt="X" class="scale" src="gfx/bg.png" id="21"/></a>
-	        		</div>
-	        	</div>
-	        	<div class="square">
-	        		<div class="content" >
-	                    <a href="#" id="c3"><img alt="X" class="scale" src="gfx/bg.png" id="22"/></a>
-	        		</div>
-	        	</div>
-	        	<form method="post" action="/computervscomputer" role="form">
-				<input type="submit" value="Start" class="btn" id="btn_compvscomp" /><br>
-				</form>
-	        </div>
-	        <div id="output"></div>
-		<div id="output2"></div>
-		</div>
+		    <!-- third row -->
+		    <div class="square">
+		      <div class="content">
+			                    <a href="#" id="c1"><img alt="X" class="scale" src="gfx/bg.png" id="20"/></a>
+					    </div>
+		      </div>
+		    <div class="square">
+		      <div class="content">
+			                    <a href="#" id="c2"><img alt="X" class="scale" src="gfx/bg.png" id="21"/></a>
+					    </div>
+		      </div>
+		    <div class="square">
+		      <div class="content" >
+			                    <a href="#" id="c3"><img alt="X" class="scale" src="gfx/bg.png" id="22"/></a>
+					    </div>
+		      </div>
+		    <form method="post" action="/computervscomputer" role="form">
+		      <input type="submit" value="Start" class="btn" id="btn_compvscomp" /><br>
+		      </form>
 
-		<script>
-		$(document).ready(function() {
-		
-		var form = $('form');
-		form.submit(function( event ) {
+		   
+		            </div>
+		  <form method="post" action="/results" role="form2">
+                      <input type="submit" value="Results" class="btn" /><br>
+                      </form>		   
+
+       <div id="output"></div>
+			  <div id="output2"></div>
+			  </div>
+
+	<script>
+	  $(document).ready(function() {
+	  
+	   var form2 = $('form2');
+          form2.submit(function( event ) {
+                          $.ajax({
+                              type: form2.attr('method'),
+                              url: form2.attr('action'),
+                              data: null
+                          }).done(function(finalresults) {
+                $('#output').html(finalresults).attr('class', 'alert alert-success');
+	  });
+	  });
+	  var form = $('form');
+	  form.submit(function( event ) {
          
-	                $.ajax({
-	                    type: form.attr('method'),
-	                    url: form.attr('action'),
-	                    data: null
-	                }).done(function(resultSet) {
-	   
+	                  $.ajax({
+	                      type: form.attr('method'),
+	                      url: form.attr('action'),
+	                      data: null
+	                  }).done(function(resultSet) {
+	     
                 $('#output').html(resultSet).attr('class', 'alert alert-success');
-	        
-		var tmp = "#";
-		var arr2 = ["00", "01", "02", "10", "11", "12", "20", "21", "22"];
-		for (var i = 0; i < 9; i++){
+	          
+	  var tmp = "#";
+	  var arr2 = ["00", "01", "02", "10", "11", "12", "20", "21", "22"];
+	  for (var i = 0; i < 9; i++){
                         var x = arr2[i];
                         $(tmp.concat(x)).attr('src',"gfx/bg.png");
-				    }
-
-
-		          var arr = resultSet.split(',');
-		           
-		           
-		           
-		          for(var i = 0; i < arr.length; i++){
-				   if(i % 2 === 0){
-				  
-				    var x = arr[i];
-				
-				  // $(tmp.concat(x)).fadeOut(function() {
-			          //     $(this).attr('src',"gfx/x.png").fadeIn();
-				  //  });
-
-
-				    $(tmp.concat(x)).attr('src',"gfx/x.png");
-
-				   }
-				   else{
-
-			          var y = arr[i];
-				    $(tmp.concat(y)).attr('src',"gfx/o.png");
-					     //$(tmp.concat(y)).fadeOut(function() {
-					     //$(this).attr('src',"gfx/o.png").fadeIn();
-					     //});
-				   }
-
-			
-			}
-
-
-					     
-	                }).fail(function(Failes) {
-	                    $('#output').html('FAILED').attr('class', 'alert alert-danger');
-	                });
-	               event.preventDefault();
-
-		   });
-		});
-		
-		</script>
+			          }
+			                var arr = resultSet.split(',');
+			                 
+			                 
+			                 
+			                for(var i = 0; i < arr.length; i++){
+							      if(i % 2 === 0){
+							      // TODO handle X
+							       var x = arr[i];
+							   
+							      $(tmp.concat(x)).fadeOut(function() {
+							                  $(this).attr('src',"gfx/x.png").fadeIn();
+							       });
+							       //$(tmp.concat(x)).attr('src',"gfx/x.png");
+							      }
+							      else{
+							             var y = arr[i];
+							       //$(tmp.concat(y)).attr('src',"gfx/o.png");
+							        $(tmp.concat(y)).fadeOut(function() {
+							        $(this).attr('src',"gfx/o.png").fadeIn();
+							        });
+							      }
+							   
+							   }
+							        
+							                   }).fail(function(Failes) {
+							                       $('#output').html('FAILED').attr('class', 'alert alert-danger');
+							                   });
+							                  event.preventDefault();
+							      });
+							   });
+							   
+							   </script>
     </body>
-</html>        	
+</html>
