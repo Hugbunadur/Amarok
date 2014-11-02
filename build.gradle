@@ -165,7 +165,8 @@ release {
 	failOnCommitNeeded = false
 	failOnUpdateNeeded = false
 	failOnPublishNeeded = false
-	preCommitText = 'Amarok release'
+	preCommitText = 'Amarok release :'
 	newVersionCommitMessage = 'NEW VERSION'
-
+	tagPrefix = 'TicTacToe'
 }
+
