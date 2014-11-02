@@ -36,29 +36,7 @@ $(document).ready(function(){
 	
 	});
 
-var form = $('formTest');
-            form.submit(function( event ) {
 
-                var player1 = $("#player1").val();
-                if($("#player1").val().length == 0) {
-              //call fail(function(Failes))
-              $('.output').html('Please Enter Name').attr('class', 'alert alert-danger');
-              }
-              else{
-                              $.ajax({
-                                  type: form.attr('method'),
-                                  url: form.attr('action'),
-                                  data: 'id='+ player1
-                              }).done(function(doneGetName) {
-                                 $('.output').html(doneGetName).attr('class', 'alert alert-success');
-                                 location.href = "menu.html"
-                              });
-                              /*.fail(function(Failes) {
-                                  $('.output').html('Please Enter Name').attr('class', 'alert alert-danger');
-                              })*/
-          }
-                              event.preventDefault();
-            });
 
 
 });

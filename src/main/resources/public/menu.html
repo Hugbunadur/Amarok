@@ -7,7 +7,7 @@
      
 	<script src="scriptjava.js"></script>
 
-	<script src="script.js"></script>
+	<!--<script src="script.js"></script>-->
 	
     </head>
 
@@ -64,39 +64,7 @@
 	     });
 
 
-	  var form2 = $('form2');
-	  form2.submit(function( event ) {
-         
-	                  $.ajax({
-	                      type: form2.attr('method'),
-	                      url: form2.attr('action'),
-	                      data: null
-	                  }).done(function(computer) {
-	                      //$('#output').html(computer).attr('class', 'alert alert-success');
-	                      window.location.href = "game.html"
-	                  }).fail(function(Failes) {
-	                      $('#output').html('FAILED').attr('class', 'alert alert-danger');
-	                  });
-	                 event.preventDefault();
 
-	     });
-
-	  var form3 = $('form');
-	  form.submit(function( event ) {
-         
-	                  $.ajax({
-	                      type: form3.attr('method'),
-	                      url: form3.attr('action'),
-	                      data: null
-	                  }).done(function(myname) {
-	                      $('#output').html(myname).attr('class', 'alert alert-success');
-	                      //window.location.href = "game.html"
-	                  }).fail(function(Failes) {
-	                      $('#output').html('FAILED').attr('class', 'alert alert-danger');
-	                  });
-	                 event.preventDefault();
-
-	     });
 	  });
 	  
 	  </script>
