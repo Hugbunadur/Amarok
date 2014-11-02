@@ -17,5 +17,3 @@ notifications:
   on_success: always
   on_failure: never
 
-script:
- - gradle clean build check stats messageTask
