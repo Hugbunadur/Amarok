@@ -6,7 +6,7 @@ plugins {
 apply plugin: 'java'
 apply plugin: 'application'
 apply plugin: 'jacoco'
-apply from: 'http://tellurianring.com/projects/gradle-plugins/gradle-release/apply.groovy'
+//apply from: 'http://tellurianring.com/projects/gradle-plugins/gradle-release/apply.groovy'
 
 repositories {
   	     jcenter()
