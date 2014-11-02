@@ -4,55 +4,54 @@
        <meta http-equiv="content-type" content="text/html; charset=utf-8" />
         <title>TicTacToe</title>
         <link rel="stylesheet" href="main.css">
-	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-    </head>
+	<script src="scriptjava.js"></script>
+	<script src="script.js"></script>
+</head>
 
     <body>
       <!-- main container -->
       <div class="header"><a href="index.html"><img alt="logo" src="gfx/logo.png"></a></div>
         <div class="container">
-	  <h1>TicTacToe</h1>
-	  
+	    <h1>TicTacToe</h1>
+	      
 
-	  <div class="box">
-	    <p>Welcome to our wonderful game!<br>
-	      Please enter your player name to continue</p>
-	            <form method="post" action="/username" role="form">
-		      <input type="text" id="player1" name="player1" placeholder=" Player name"/> <br><br>
-		      <input type="submit" value="Continue" /> <br/><br/><br/>
-		      </form>
-		    <div class="output"></div>
-	  </div>
+	      <div class="box">
+		    <p>Welcome to our wonderful game!<br>
+		            Please enter your player name to continue</p>
+		                <form method="post" action="/username" role="form">
+				        <input type="text" id="player1" name="player1" placeholder=" Player name"/> <br><br>
+					      <input type="submit" value="Continue" /> <br/><br/><br/>
+					            </form>
+				    <div class="output"></div>
+				      </div>
 
-	  </div>
+	        </div>
 
 	<script>
-	  $(document).ready(function() {
+	    $(document).ready(function() {
             var form = $('form');
             form.submit(function( event ) {
                 
                 var player1 = $("#player1").val();
                 if($("#player1").val().length == 0) {
-	  //call fail(function(Failes))
-	  $('.output').html('Please Enter Name').attr('class', 'alert alert-danger');
-	  }
-	  else{
-	                  $.ajax({
-	                      type: form.attr('method'),
-	                      url: form.attr('action'),
-	                      data: 'id='+ player1
-	                  }).done(function(doneGetName) {
-	                     $('.output').html(doneGetName).attr('class', 'alert alert-success');
-	                     location.href = "menu.html"
-	                  });
-	                  /*.fail(function(Failes) {
-	                      $('.output').html('Please Enter Name').attr('class', 'alert alert-danger');
-	                  })*/
+	      //call fail(function(Failes))
+	      $('.output').html('Please Enter Name').attr('class', 'alert alert-danger');
+	      }
+	      else{
+	                      $.ajax({
+	                          type: form.attr('method'),
+	                          url: form.attr('action'),
+	                          data: 'id='+ player1
+	                      }).done(function(doneGetName) {
+	                         $('.output').html(doneGetName).attr('class', 'alert alert-success');
+	                         location.href = "menu.html"
+	                      });
+	                   
           }
-	                  event.preventDefault();
+	                      event.preventDefault();
             });
         });
-	  
-	  </script>
+	      
+	      </script>
     </body>
 </html>

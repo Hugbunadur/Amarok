@@ -1,104 +1,83 @@
 <!DOCTYPE html>
 <html>
     <head>
-    	 <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+       <meta http-equiv="content-type" content="text/html; charset=utf-8" />
         <title>TicTacToe</title>
         <link rel="stylesheet" href="main.css">
      
-		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+	<script src="scriptjava.js"></script>
 
-		<script src="script.js"></script>
-		
+	<!--<script src="script.js"></script>-->
+	
     </head>
 
     <body>
-    	<div class="header"><a href="index.html"><img alt="logo" src="gfx/logo.png"></a></div>
+      <div class="header"><a href="index.html"><img alt="logo" src="gfx/logo.png"></a></div>
         <div class="container">
-	        <h1>TicTacToe</h1>
+	          <h1>TicTacToe</h1>
 
-			<div class="box">
-				<p>Please make a choice to continue!</p>
+		  <div class="box">
+		    <p>Please make a choice to continue!</p>
 
-				<form method="post" action="/playervscomputer" role="form">
-				<input type="submit" value="PLAYER vs COMPUTER" class="btn" id="btn_playvscomp" /><br>
-				</form>
+		    <form method="post" action="/playervscomputer" role="form">
+		      <input type="submit" value="PLAYER vs COMPUTER" class="btn" id="btn_playvscomp" /><br>
+		      </form>
 
-				<form method="post" action="/computervscomputer" role="form2">
-				<input type="submit" value="COMPUTER vs COMPUTER" class="btn" id="btn_compvscomp" /><br>
+		    <form method="post" action="/computervscomputer" role="form2">
+		      <input type="submit" value="COMPUTER vs COMPUTER" class="btn" id="btn_compvscomp" /><br>
 
-				</form>
-				
-				<input type="submit" value="PLAYER vs PLAYER" class="btn" id="show"/>
-				<div class="playertwo">
-					<form method="post" action="playervsplayer" role="form3">
-					<input type="text" id="PlayerName2" name="PlayerName2" placeholder=" Enter name of second player"/> <br><br>
-					<input type="submit" value="Continue" class="btn" id="btn_playvsplay"/> 
-					</form>
-				</div>
-				
-				
-				
-				
-				
-			</div>
-		</div>
+		      </form>
+		    
+		    <input type="submit" value="PLAYER vs PLAYER" class="btn" id="show"/>
+		    <div class="playertwo">
+		      <form method="post" action="playervsplayer" role="form3">
+			<input type="text" id="PlayerName2" name="PlayerName2" placeholder=" Enter name of second player"/> <br><br>
+			<input type="submit" value="Continue" class="btn" id="btn_playvsplay"/> 
+			</form>
+		      </div>
+		    
+		    
+		    
+		    
+		    
+		    </div>
+		  </div>
 
-		<script>
-		$(document).ready(function() {
-		
-		var form = $('form');
-		form.submit(function( event ) {
+	<script>
+	  $(document).ready(function() {
+	  
+	  var form = $('form');
+	  form.submit(function( event ) {
          
-	                $.ajax({
-	                    type: form.attr('method'),
-	                    url: form.attr('action'),
-	                    data: null
-	                }).done(function(myname) {
-	                    $('#output').html(myname).attr('class', 'alert alert-success');
-	                    //window.location.href = "game.html"
-	                }).fail(function(Failes) {
-	                    $('#output').html('FAILED').attr('class', 'alert alert-danger');
-	                });
-	               event.preventDefault();
-
-		   });
-
-
-			var form2 = $('form2');
-		form2.submit(function( event ) {
+	                  $.ajax({
+	                      type: form.attr('method'),
+	                      url: form.attr('action'),
+	                      data: null
+	                  }).done(function(myname) {
+	                      $('#output').html(myname).attr('class', 'alert alert-success');
+	                      //window.location.href = "game.html"
+	                  }).fail(function(Failes) {
+	                      $('#output').html('FAILED').attr('class', 'alert alert-danger');
+	                  });
+	                 event.preventDefault();
+	     });
+	  var form2 = $('form2');
+	  form2.submit(function( event ) {
          
-	                $.ajax({
-	                    type: form2.attr('method'),
-	                    url: form2.attr('action'),
-	                    data: null
-	                }).done(function(computer) {
-	                    //$('#output').html(computer).attr('class', 'alert alert-success');
-	                    window.location.href = "game.html"
-	                }).fail(function(Failes) {
-	                    $('#output').html('FAILED').attr('class', 'alert alert-danger');
-	                });
-	               event.preventDefault();
-
-		   });
-
-			var form3 = $('form');
-		form.submit(function( event ) {
-         
-	                $.ajax({
-	                    type: form3.attr('method'),
-	                    url: form3.attr('action'),
-	                    data: null
-	                }).done(function(myname) {
-	                    $('#output').html(myname).attr('class', 'alert alert-success');
-	                    //window.location.href = "game.html"
-	                }).fail(function(Failes) {
-	                    $('#output').html('FAILED').attr('class', 'alert alert-danger');
-	                });
-	               event.preventDefault();
-
-		   });
-		});
-		
-		</script>
+	                  $.ajax({
+	                      type: form2.attr('method'),
+	                      url: form2.attr('action'),
+	                      data: null
+	                  }).done(function(computer) {
+	                      //$('#output').html(computer).attr('class', 'alert alert-success');
+	                      window.location.href = "game.html"
+	                  }).fail(function(Failes) {
+	                      $('#output').html('FAILED').attr('class', 'alert alert-danger');
+	                  });
+	                 event.preventDefault();
+	     });
+	  });
+	  
+	  </script>
     </body>
-</html>        	
+</html>
