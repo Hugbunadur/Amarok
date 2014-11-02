@@ -67,19 +67,19 @@ public class PlayGameWeb implements SparkApplication {
 			win = PlayGame.checkWins(board);
 			if(win){
 			    PlayGame.setVictoryForSpecificPlayer(player, compplayerB);
-			    resultSet = resultSet.substring(0,resultSet.length() - 2);
+			    resultSet = resultSet.substring(0,resultSet.length() - 1);
 			    return resultSet;
 			}
             
 			// check if draw
 			if(PlayGame.checkDraw(finishGame, compplayerA, compplayerB)){
-			    resultSet = resultSet.substring(0,resultSet.length() - 2);
+			    resultSet = resultSet.substring(0,resultSet.length() - 1);
 			    return resultSet;
 			}
 
 
 		    }
-		   resultSet = resultSet.substring(0,resultSet.length() - 2);
+		   resultSet = resultSet.substring(0,resultSet.length() - 1);
 		    return resultSet;
 		}
 
