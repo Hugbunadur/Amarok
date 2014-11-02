@@ -74,12 +74,12 @@
 
 		   
 		            </div>
-		  <form method="post" action="/results" role="tester">
-                      <input type="submit" value="Results" class="btn" id="tmp" /><br>
-                      </form>		   
+		
+                
+                
 
-       <div id="output"></div>
-       <div id="output2"><p>wegweggw</p></div>
+     
+     
 			  </div>
 
 	<script>
@@ -94,7 +94,7 @@
                               data: null
                           }).done(function(finalresults) {
 
-                $('#output2').html("Works in html").attr('class', 'alert alert-success');
+                //$('#output2').html("Works in html").attr('class', 'alert alert-success');
 	  });
 	  });
 
@@ -108,7 +108,7 @@
 	                      data: null
 	                  }).done(function(resultSet) {
 	     
-                $('#output').html(resultSet).attr('class', 'alert alert-success');
+                //$('#output').html(resultSet).attr('class', 'alert alert-success');
 	          
 	  var tmp = "#";
 	  var arr2 = ["00", "01", "02", "10", "11", "12", "20", "21", "22"];
