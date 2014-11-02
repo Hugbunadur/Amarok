@@ -165,4 +165,5 @@ release {
 	failOnCommitNeeded = false
 	failOnUpdateNeeded = false
 	failOnPublishNeeded = false
+	preCommitText = 'Amarok release'
 }
