@@ -161,3 +161,8 @@ task messageTask(type: com.github.blazsolar.gradle.hipchat.tasks.SendMessageTask
      color = "red"
 }
 
+release {
+	failOnCommitNeeded = false
+	failOnUpdateNeeded = false
+	failOnPublishNeeded = false
+}
