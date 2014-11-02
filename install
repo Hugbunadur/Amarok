@@ -4,5 +4,6 @@ gradle clean build
 gradle check jar 
 gradle install
 gradle messageTask stats
+gradle release
 git status
 ./bin/deploy
