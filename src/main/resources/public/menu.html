@@ -17,8 +17,8 @@
 	        <h1>TicTacToe</h1>
 
 			<div class="box">
-			  <div id="displayUser"></div>
-				
+			 
+				<p>Please make a choice to continue!</p>
 				<input type="submit" value="PLAYER vs COMPUTER" class="btn" id="btn_playvscomp" /><br>
 
 				<input type="submit" value="COMPUTER vs COMPUTER" class="btn" id="btn_compvscomp" /><br>
@@ -40,18 +40,6 @@
 
 		<script>
 		$(document).ready(function() {
-		$.ajax({
-                            type: form.attr('method'),
-                            url: form.attr('action'),
-                            data: null
-                        }).done(function(myname) {
-                            $('#displayUser').html(myname + "please make a choice").attr('class', 'alert alert-success');
-                            //window.location.href = "game.html"
-                        }).fail(function(Failes) {
-                            $('#displayUser').html('FAILED').attr('class', 'alert alert-danger');
-                        });
-                        event.preventDefault();
-		/*
 		var form = $('form');
 		form.submit(function( event ) {
          
@@ -67,7 +55,7 @@
 	                });
 	               event.preventDefault();
 
-		   });*/
+		   });
 		});
 		
 		</script>
