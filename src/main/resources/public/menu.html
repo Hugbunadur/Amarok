@@ -63,7 +63,22 @@
 
 	     });
 
+	  var form2 = $('form2');
+	  form2.submit(function( event ) {
+         
+	                  $.ajax({
+	                      type: form2.attr('method'),
+	                      url: form2.attr('action'),
+	                      data: null
+	                  }).done(function(computer) {
+	                      //$('#output').html(computer).attr('class', 'alert alert-success');
+	                      window.location.href = "game.html"
+	                  }).fail(function(Failes) {
+	                      $('#output').html('FAILED').attr('class', 'alert alert-danger');
+	                  });
+	                 event.preventDefault();
 
+	     });
 
 	  });
 	  
