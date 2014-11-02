@@ -1,11 +1,12 @@
 language: java
 jdk:
-  - oraclejdk8
-  - oraclejdk7
   - openjdk7
+
 deploy:
   provider: heroku
+
 addons:
   sauce_connect:
     username: "Tegn"
     access_key: "01740e1d-44dc-4203-857d-62960b201638"
+
