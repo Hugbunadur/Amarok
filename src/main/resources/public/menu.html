@@ -17,7 +17,8 @@
 	        <h1>TicTacToe</h1>
 
 			<div class="box">
-				<p>Please make a choice to continue</p>
+			  <div id="displayUser"></div>
+				
 				<input type="submit" value="PLAYER vs COMPUTER" class="btn" id="btn_playvscomp" /><br>
 
 				<input type="submit" value="COMPUTER vs COMPUTER" class="btn" id="btn_compvscomp" /><br>
@@ -29,35 +30,47 @@
 					<input type="submit" value="Continue" class="btn" id="btn_playvsplay"/> 
 					</form>
 				</div>
-				<div id="output"</div>
-				<form method="post" action="/showname" role="form1">
 				
-				  <input type="submit" value="Tell Me My Name" class="btn" id="myName"/>
-				</form> 
+				
+				
+				
+				
 			</div>
 		</div>
 
 		<script>
 		$(document).ready(function() {
-		var form = $('form1');
+		$.ajax({
+                            type: form.attr('method'),
+                            url: form.attr('action'),
+                            data: null
+                        }).done(function(myname) {
+                            $('#displayUser').html(myname + "please make a choice").attr('class', 'alert alert-success');
+                            //window.location.href = "game.html"
+                        }).fail(function(Failes) {
+                            $('#displayUser').html('FAILED').attr('class', 'alert alert-danger');
+                        });
+                        event.preventDefault();
+		/*
+		var form = $('form');
 		form.submit(function( event ) {
          
 	                $.ajax({
 	                    type: form.attr('method'),
 	                    url: form.attr('action'),
 	                    data: null
-	                }).done(function(MYName) {
-	                    $('#output').html(MYName).attr('class', 'alert alert-success');
+	                }).done(function(myname) {
+	                    $('#output').html(myname).attr('class', 'alert alert-success');
 	                    //window.location.href = "game.html"
 	                }).fail(function(Failes) {
 	                    $('#output').html('FAILED').attr('class', 'alert alert-danger');
 	                });
-	                event.preventDefault();
+	               event.preventDefault();
 
-            });
-        });
+		   });*/
+		});
 		
-		</script>-->
+		</script>
 
 
 

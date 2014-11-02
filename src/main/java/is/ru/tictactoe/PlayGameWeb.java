@@ -33,21 +33,14 @@ public class PlayGameWeb implements SparkApplication {
 		    }
         });
 	
-	post(new Route("/showname"){
+	post(new Route("/myname"){
+                @Override
+                    public Object handle(Request request, Response response){
+                    String myname = humplayerA.getUsername();
+		    if (myname.isEmpty()) myname = "Player 1";
+		    return myname;
 
-		@Override
-		public Object handle(Request request, Response response){
-		    String MYName = humplayerA.getUsername();
-		    if(MYName.isEmpty()) {
-			MYName = "the length is 0";}
-			
-		    else
-			MYName =  humplayerA.getUsername();
-		    
-		    return MYName;
 		}
-	   
-
 	    });
 
 
