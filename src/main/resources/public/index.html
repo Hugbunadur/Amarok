@@ -5,7 +5,8 @@
         <title>TicTacToe</title>
         <link rel="stylesheet" href="main.css">
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-    </head>
+	<script src="script.js"></script>
+</head>
 
     <body>
       <!-- main container -->
@@ -17,7 +18,7 @@
 	      <div class="box">
 		    <p>Welcome to our wonderful game!<br>
 		            Please enter your player name to continue</p>
-		                <form method="post" action="/username" role="form">
+		                <form method="post" action="/username" role="formTest">
 				        <input type="text" id="player1" name="player1" placeholder=" Player name"/> <br><br>
 					      <input type="submit" value="Continue" /> <br/><br/><br/>
 					            </form>
@@ -26,7 +27,7 @@
 
 	        </div>
 
-	<script>
+	<!--<script>
 	    $(document).ready(function() {
             var form = $('form');
             form.submit(function( event ) {
@@ -53,6 +54,6 @@
             });
         });
 	      
-	      </script>
+	      </script>-->
     </body>
 </html>
