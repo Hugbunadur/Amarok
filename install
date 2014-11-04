@@ -5,5 +5,5 @@ gradle check jar
 gradle install
 gradle messageTask stats
 gradle release
-git status
+//git status
 ./bin/deploy
