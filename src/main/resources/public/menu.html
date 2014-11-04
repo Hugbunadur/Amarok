@@ -23,7 +23,7 @@
 		      <input type="submit" value="PLAYER vs COMPUTER" class="btn" id="btn_playvscomp" /><br>
 		      </form>
 
-		    <form method="post" action="/computervscomputer" role="form">
+		    <form method="post" action="game.html" role="form">
 		      <input type="submit" value="COMPUTER vs COMPUTER" class="btn" id="btn_compvscomp" /><br>
 
 		      </form>
@@ -61,21 +61,7 @@
 	                  });
 	                 event.preventDefault();
 	     });
-	  var form2 = $('form2');
-	  form2.submit(function( event ) {
-         
-	                  $.ajax({
-	                      type: form2.attr('method'),
-	                      url: form2.attr('action'),
-	                      data: null
-	                  }).done(function(computer) {
-	                      //$('#output').html(computer).attr('class', 'alert alert-success');
-	                      window.location.href = "game.html"
-	                  }).fail(function(Failes) {
-	                      $('#output').html('FAILED').attr('class', 'alert alert-danger');
-	                  });
-	                 event.preventDefault();
-	     });
+	
 	  });
 	  
 	  </script>
