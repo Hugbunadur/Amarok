@@ -1,6 +1,9 @@
 #!/bin/bash
-printf "Building up gradle with gradle build.\n"
-gradle build
-printf "Calling for build test.\n"
-gradle test
-git status
+printf "Building up gradle with to ensure everything works!.\n"
+gradle clean build 
+gradle check jar 
+gradle install
+gradle messageTask stats
+gradle release
+//git status
+./bin/deploy
