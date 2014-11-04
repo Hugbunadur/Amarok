@@ -23,7 +23,7 @@
 		      <input type="submit" value="PLAYER vs COMPUTER" class="btn" id="btn_playvscomp" /><br>
 		      </form>
 
-		    <form method="post" action="game.html" role="form">
+		    <form method="post" action="/computervscomputer" role="form">
 		      <input type="submit" value="COMPUTER vs COMPUTER" class="btn" id="btn_compvscomp" /><br>
 
 		      </form>
@@ -54,8 +54,8 @@
 	                      url: form.attr('action'),
 	                      data: null
 	                  }).done(function(myname) {
-	                      $('#output').html(myname).attr('class', 'alert alert-success');
-	                      //window.location.href = "game.html"
+	                      //$('#output').html(myname).attr('class', 'alert alert-success');
+	                      window.location.href = "game.html"
 	                  }).fail(function(Failes) {
 	                      $('#output').html('FAILED').attr('class', 'alert alert-danger');
 	                  });
